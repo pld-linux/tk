@@ -1,11 +1,22 @@
---- tk8.3.4/unix/Makefile.in.orig	Tue May 20 14:13:35 2003
-+++ tk8.3.4/unix/Makefile.in	Tue May 20 14:14:49 2003
+--- tk8.3.4/unix/Makefile.in.wiget	2003-06-04 13:42:20.394277901 +0200
++++ tk8.3.4/unix/Makefile.in	2003-06-04 13:43:09.458752242 +0200
 @@ -371,7 +371,7 @@
  # a shared library or non-shared library for Tk.
  ${TK_LIB_FILE}: ${OBJS}
  	rm -f ${TK_LIB_FILE}
 -	@MAKE_LIB@
-+	@MAKE_LIB@ -Wl,-soname,libtk8.3.so
++	@MAKE_LIB@ -Wl,-soname,libtk8.3.so.0
  	$(RANLIB) ${TK_LIB_FILE}
  
  ${STUB_LIB_FILE}: ${STUB_LIB_OBJS}
+--- tk8.3.4/unix/tcl.m4.wiget	2003-06-04 13:48:26.895209433 +0200
++++ tk8.3.4/unix/tcl.m4	2003-06-04 14:29:44.243749782 +0200
+@@ -829,7 +829,7 @@
+ 	Linux*)
+ 	    SHLIB_CFLAGS="-fPIC"
+ 	    SHLIB_LD_LIBS='${LIBS}'
+-	    SHLIB_SUFFIX=".so"
++	    SHLIB_SUFFIX=".so.0.0"
+ 
+ 	    # egcs-2.91.66 on Redhat Linux 6.0 generates lots of warnings 
+ 	    # when you inline the string and math operations.  Turn this off to
