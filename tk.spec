@@ -87,7 +87,7 @@ Narzêdzia Tk GUI - programy demostracjne.
 
 %build
 cd unix
-autoconf
+%{__autoconf}
 TCL_BIN_DIR=%{_libdir}
 %configure \
 	--disable-symbols \
