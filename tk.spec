@@ -3,12 +3,9 @@ Summary(de):	Tk GUI-Toolkit für Tcl mit gemeinsam genutzten Libraries
 Summary(fr):	Boite à outil d'interfaçage graphique Tk pour Tcl avec librairies partagées
 Summary(pl):	Tk GUI narzêdzia dla Tcl wraz z bibliotekami dynamicznymi
 Summary(tr):	Tk, TCL için grafik kullanýcý arabirimi araç takýmýdýr
-Group:		Development/Languages/Tcl
-Group(de):	Entwicklung/Sprachen/Tcl
-Group(pl):	Programowanie/Jêzyki/Tcl
 Name:		tk
 Version:	8.3.4
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Languages/Tcl
 Group(de):	Entwicklung/Sprachen/Tcl
