@@ -18,7 +18,9 @@ Patch0:		%{name}-ieee.patch
 Patch1:		%{name}-manlnk.patch
 Patch2:		%{name}-pil.patch
 Patch3:		%{name}-headers_fix.patch
+Patch4:		%{name}-opt_flags_pass_fix.patch
 Icon:		tk.gif
+BuildRequires:	autoconf
 BuildRequires:	tcl-devel >= 8.3.2
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -89,16 +91,18 @@ Narzêdzia Tk GUI - programy demostracjne.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 cd unix
 autoconf
 TCL_BIN_DIR=%{_libdir}
 %configure \
+	--disable-symbols \
 	--enable-shared \
 	--enable-gcc
 
-%{__make} CFLAGS_OPTIMIZE="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g} -D_REENTRANT"
+%{__make}
 
 sed -e "s#%{_builddir}/%{name}%{version}/unix#%{_libdir}#; \
 	s#%{_builddir}/%{name}%{version}#%{_includedir}#" tkConfig.sh > tkConfig.sh.new
