@@ -6,7 +6,7 @@ Summary(tr):	Tk, TCL için grafik kullanýcý arabirimi araç takýmýdýr
 Group:		Development/Languages/Tcl
 Name:		tk
 Version:	8.0.5
-Release:	3
+Release:	31
 Copyright:	BSD
 Group:		Development/Languages/Tcl
 Group(pl):	Programowanie/Jêzyki/Tcl
@@ -16,6 +16,7 @@ Patch1:		tk-nochecktcl.patch
 Patch2:		tk-manlnk.patch
 Patch3:		tk-elide.patch
 Patch4:		tk-pil.patch
+Patch5:		tk-headers_fix.patch
 Icon:		tk.gif
 BuildRequires:	tcl-devel
 BuildRequires:	XFree86-devel
@@ -84,6 +85,7 @@ Narzêdzia Tk GUI - programy demostracjne.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 cd unix
