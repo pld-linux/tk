@@ -83,7 +83,7 @@ autoconf
 cd unix
 TCL_BIN_DIR=%{_libdir} \
 CFLAGS="$RPM_OPT_FLAGS -D_REENTRANT" LDFLAGS="-s" \
-./configure %{_target} \
+./configure %{_target_platform} \
 	--prefix=/usr \
 	--enable-shared \
 	--enable-gcc
