@@ -112,7 +112,7 @@ make install \
 ln -sf libtk8.0.so $RPM_BUILD_ROOT%{_libdir}/libtk.so
 ln -sf wish8.0 $RPM_BUILD_ROOT%{_bindir}/wish
 
-strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so
+strip --strip-unneeded $RPM_BUILD_ROOT{%{_libdir}/lib*.so,%{_bindir}/*}
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man?/*
 
