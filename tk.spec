@@ -114,7 +114,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-/usr/include/*
+%{_includedir}/*
 %{_libdir}/tkConfig.sh
 %{_mandir}/man3/*
 %{_mandir}/mann/*
