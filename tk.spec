@@ -34,6 +34,8 @@ BuildRequires:	tcl-devel >= %{version}
 Requires:	tcl >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define	_ulibdir /usr/lib
+
 %description
 Tk is a X Window widget set designed to work closely with the Tcl
 scripting language. It allows you to write simple programs with full
@@ -147,7 +149,7 @@ mv -f tkConfig.sh.new tkConfig.sh
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_mandir}
+install -d $RPM_BUILD_ROOT{%{_mandir},%{_ulibdir}}
 
 %{__make} -C unix install \
 	INSTALL_ROOT=$RPM_BUILD_ROOT \
@@ -156,6 +158,8 @@ install -d $RPM_BUILD_ROOT%{_mandir}
 ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk.so
 ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk%{major}.so
 mv -f $RPM_BUILD_ROOT%{_bindir}/wish%{major} $RPM_BUILD_ROOT%{_bindir}/wish
+
+mv $RPM_BUILD_ROOT%{_libdir}/tk%{major} $RPM_BUILD_ROOT%{_ulibdir}/
 
 install generic/tkInt.h $RPM_BUILD_ROOT%{_includedir}
 
@@ -169,23 +173,23 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%dir %{_libdir}/tk%{major}
-%{_libdir}/tk%{major}/*.tcl
-%{_libdir}/tk%{major}/tclIndex
-%{_libdir}/tk%{major}/tkAppInit.c
-%{_libdir}/tk%{major}/prolog.ps
-%{_libdir}/tk%{major}/images
-%dir %{_libdir}/tk%{major}/msgs
-%lang(cs) %{_libdir}/tk%{major}/msgs/cs.msg
-%lang(de) %{_libdir}/tk%{major}/msgs/de.msg
-%lang(el) %{_libdir}/tk%{major}/msgs/el.msg
-%{_libdir}/tk%{major}/msgs/en.msg
-%lang(en_GB) %{_libdir}/tk%{major}/msgs/en_gb.msg
-%lang(es) %{_libdir}/tk%{major}/msgs/es.msg
-%lang(fr) %{_libdir}/tk%{major}/msgs/fr.msg
-%lang(it) %{_libdir}/tk%{major}/msgs/it.msg
-%lang(nl) %{_libdir}/tk%{major}/msgs/nl.msg
-%lang(ru) %{_libdir}/tk%{major}/msgs/ru.msg
+%dir %{_ulibdir}/tk%{major}
+%{_ulibdir}/tk%{major}/*.tcl
+%{_ulibdir}/tk%{major}/tclIndex
+%{_ulibdir}/tk%{major}/tkAppInit.c
+%{_ulibdir}/tk%{major}/prolog.ps
+%{_ulibdir}/tk%{major}/images
+%dir %{_ulibdir}/tk%{major}/msgs
+%lang(cs) %{_ulibdir}/tk%{major}/msgs/cs.msg
+%lang(de) %{_ulibdir}/tk%{major}/msgs/de.msg
+%lang(el) %{_ulibdir}/tk%{major}/msgs/el.msg
+%{_ulibdir}/tk%{major}/msgs/en.msg
+%lang(en_GB) %{_ulibdir}/tk%{major}/msgs/en_gb.msg
+%lang(es) %{_ulibdir}/tk%{major}/msgs/es.msg
+%lang(fr) %{_ulibdir}/tk%{major}/msgs/fr.msg
+%lang(it) %{_ulibdir}/tk%{major}/msgs/it.msg
+%lang(nl) %{_ulibdir}/tk%{major}/msgs/nl.msg
+%lang(ru) %{_ulibdir}/tk%{major}/msgs/ru.msg
 %{_mandir}/man1/*
 
 %files devel
@@ -199,4 +203,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files demo
 %defattr(644,root,root,755)
-%{_libdir}/tk%{major}/demos
+%{_ulibdir}/tk%{major}/demos
