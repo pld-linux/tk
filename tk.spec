@@ -7,8 +7,8 @@ Group:		Development/Languages/Tcl
 Group(de):	Entwicklung/Sprachen/Tcl
 Group(pl):	Programowanie/Jêzyki/Tcl
 Name:		tk
-Version:	8.3.3
-Release:	2
+Version:	8.3.4
+Release:	1
 License:	BSD
 Group:		Development/Languages/Tcl
 Group(de):	Entwicklung/Sprachen/Tcl
