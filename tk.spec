@@ -96,7 +96,7 @@ install -d $RPM_BUILD_ROOT/usr
 cd unix
 make INSTALL_ROOT=$RPM_BUILD_ROOT install
 ln -sf libtk8.0.so $RPM_BUILD_ROOT%{_libdir}/libtk.so
-ln -sf wish8.0 $RPM_BUILD_ROOT/usr/bin/wish
+ln -sf wish8.0 $RPM_BUILD_ROOT%{_bindir}/wish
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
@@ -106,7 +106,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) /usr/bin/*
+%attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so
 %dir %{_libdir}/tk8.0
 %{_libdir}/tk8.0/*.tcl
