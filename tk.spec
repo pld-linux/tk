@@ -8,7 +8,7 @@ Group(de):	Entwicklung/Sprachen/Tcl
 Group(pl):	Programowanie/Jêzyki/Tcl
 Name:		tk
 Version:	8.3.3
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Languages/Tcl
 Group(de):	Entwicklung/Sprachen/Tcl
@@ -122,6 +122,8 @@ cd unix
 
 ln -sf libtk8.3.so $RPM_BUILD_ROOT%{_libdir}/libtk.so
 mv -f $RPM_BUILD_ROOT%{_bindir}/wish8.3 $RPM_BUILD_ROOT%{_bindir}/wish
+
+install generic/tkInt.h $RPM_BUILD_ROOT%{_includedir}
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
