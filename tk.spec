@@ -159,7 +159,7 @@ ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk.so
 ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk%{major}.so
 mv -f $RPM_BUILD_ROOT%{_bindir}/wish%{major} $RPM_BUILD_ROOT%{_bindir}/wish
 
-mv $RPM_BUILD_ROOT%{_libdir}/tk%{major} $RPM_BUILD_ROOT%{_ulibdir}/
+mv $RPM_BUILD_ROOT%{_libdir}/tk* $RPM_BUILD_ROOT%{_ulibdir}/
 
 install generic/tkInt.h $RPM_BUILD_ROOT%{_includedir}
 
@@ -195,7 +195,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/*
-%attr(755,root,root) %{_libdir}/tkConfig.sh
+%attr(755,root,root) %{_ulibdir}/tkConfig.sh
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/libtkstub%{major}.a
 %{_mandir}/man3/*
