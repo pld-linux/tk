@@ -20,7 +20,7 @@ Patch5:		tk-headers_fix.patch
 Icon:		tk.gif
 BuildRequires:	tcl-devel
 BuildRequires:	XFree86-devel
-Buildroot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Tk is a X Windows widget set designed to work closely with the tcl scripting
