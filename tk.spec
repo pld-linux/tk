@@ -8,7 +8,7 @@ Summary(uk):	Tk GUI toolkit для Tcl
 Name:		tk
 %define major	8.4
 Version:	%{major}.5
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	http://dl.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
