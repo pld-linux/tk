@@ -17,8 +17,8 @@ Patch2:		tk-manlnk.patch
 Patch3:		tk-elide.patch
 Patch4:		tk-pil.patch
 Icon:		tk.gif
-BuildPrereq:	tcl-devel
-BuildPrereq:	XFree86-devel
+BuildRequires:	tcl-devel
+BuildRequires:	XFree86-devel
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
