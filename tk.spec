@@ -17,6 +17,8 @@ Patch2:		tk-manlnk.patch
 Patch3:		tk-elide.patch
 Patch4:		tk-pil.patch
 Icon:		tk.gif
+BuildPrereq:	tcl-devel
+BuildPrereq:	XFree86-devel
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -94,6 +96,10 @@ LDFLAGS="-s" \
 	--enable-gcc
 make CFLAGS_OPTIMIZE="$RPM_OPT_FLAGS -D_REENTRANT"
 
+sed -e "s#%{_builddir}/%{name}%{version}/unix#/usr/lib#; \
+	s#%{_builddir}/%{name}%{version}#/usr/include#" tkConfig.sh > tkConfig.sh.new
+mv -f tkConfig.sh.new tkConfig.sh
+
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_mandir}
@@ -105,6 +111,8 @@ make install \
 
 ln -sf libtk8.0.so $RPM_BUILD_ROOT%{_libdir}/libtk.so
 ln -sf wish8.0 $RPM_BUILD_ROOT%{_bindir}/wish
+
+strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man?/*
 
@@ -125,7 +133,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/*
-%{_libdir}/tkConfig.sh
+%attr(755,root,root) %{_libdir}/tkConfig.sh
 %{_mandir}/man3/*
 %{_mandir}/mann/*
 
