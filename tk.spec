@@ -97,7 +97,7 @@ export TCL_BIN_DIR LDFLAGS
 	--enable-shared \
 	--enable-gcc
 
-make CFLAGS_OPTIMIZE="$RPM_OPT_FLAGS -D_REENTRANT"
+%{__make} CFLAGS_OPTIMIZE="$RPM_OPT_FLAGS -D_REENTRANT"
 
 sed -e "s#%{_builddir}/%{name}%{version}/unix#/usr/lib#; \
 	s#%{_builddir}/%{name}%{version}#/usr/include#" tkConfig.sh > tkConfig.sh.new
@@ -108,7 +108,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_mandir}
 
 cd unix
-make install \
+%{__make} install \
 	INSTALL_ROOT=$RPM_BUILD_ROOT \
 	MAN_INSTALL_DIR=$RPM_BUILD_ROOT%{_mandir}
 
