@@ -1,23 +1,27 @@
---- tk8.4.3/unix/Makefile.in.wiget	2003-06-11 09:17:16.000000000 +0200
-+++ tk8.4.3/unix/Makefile.in	2003-06-11 09:18:20.000000000 +0200
-@@ -403,7 +403,8 @@
+--- tk8.4.6/unix/configure.in.orig	2004-03-06 22:34:25.000000000 +0100
++++ tk8.4.6/unix/configure.in	2004-03-06 22:39:05.193655656 +0100
+@@ -363,7 +363,11 @@
+     TCL_STUB_FLAGS=""
+ fi
+ TK_LIB_FILE=libtk${LIB_SUFFIX}
+-eval "TK_LIB_FILE=${TK_LIB_FILE}"
++TK_SOMAJOR=".0"
++TK_SOVERSION="${TK_SOMAJOR}.0"
++eval "TK_LIB_SONAME=${TK_LIB_FILE}${TK_SOMAJOR}"
++eval "TK_LIB_FILE=${TK_LIB_FILE}${TK_SOVERSION}"
++AC_SUBST(TK_LIB_SONAME)
+ 
+ # Note:  in the following variable, it's important to use the absolute
+ # path name of the Tcl directory rather than "..":  this is because
+--- tk8.4.6/unix/Makefile.in.orig	2004-03-06 22:34:25.000000000 +0100
++++ tk8.4.6/unix/Makefile.in	2004-03-06 22:37:05.308880912 +0100
+@@ -404,7 +404,8 @@
  # a shared library or non-shared library for Tk.
  ${LIB_FILE}: ${OBJS}
  	rm -f $@
 -	@MAKE_LIB@
-+	@MAKE_LIB@ -Wl,-soname,libtk${VERSION}.so.0
-+	-ln -sf ${LIB_FILE} libtk${VERSION}.so
++	@MAKE_LIB@ -Wl,-soname,@TK_LIB_SONAME@
++	-ln -sf ${TK_LIB_FILE} libtk${VERSION}@SHLIB_SUFFIX@
  
  ${STUB_LIB_FILE}: ${STUB_LIB_OBJS}
  	rm -f $@
---- tk8.4.3/unix/tcl.m4.wiget	2003-06-11 09:17:16.000000000 +0200
-+++ tk8.4.3/unix/tcl.m4	2003-06-11 09:17:16.000000000 +0200
-@@ -1096,7 +1096,7 @@
- 	Linux*)
- 	    SHLIB_CFLAGS="-fPIC"
- 	    SHLIB_LD_LIBS='${LIBS}'
--	    SHLIB_SUFFIX=".so"
-+	    SHLIB_SUFFIX=".so.0.0"
- 
- 	    # egcs-2.91.66 on Redhat Linux 6.0 generates lots of warnings 
- 	    # when you inline the string and math operations.  Turn this off to
