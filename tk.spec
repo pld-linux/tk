@@ -7,12 +7,12 @@ Summary(tr):	Tk, TCL için grafik kullanýcý arabirimi araç takýmýdýr
 Summary(uk):	Tk GUI toolkit ÄÌÑ Tcl
 Name:		tk
 %define major	8.4
-Version:	%{major}.6
+Version:	%{major}.7
 Release:	1
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	http://dl.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
-# Source0-md5:	24b7774d54c1c568cabe16f3498ddccd
+# Source0-md5:	b86b0db1c28723e6d3139e88250353a6
 Patch0:		%{name}-ieee.patch
 Patch1:		%{name}-manlnk.patch
 Patch2:		%{name}-pil.patch
@@ -34,7 +34,7 @@ BuildRequires:	tcl-devel >= %{version}
 Requires:	tcl >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define	_ulibdir /usr/lib
+%define		_ulibdir	/usr/lib
 
 %description
 Tk is a X Window widget set designed to work closely with the Tcl
