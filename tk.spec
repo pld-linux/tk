@@ -2,10 +2,12 @@ Summary:	Tk GUI toolkit for Tcl, with shared libraries
 Summary(de):	Tk GUI-Toolkit fЭr Tcl mit gemeinsam genutzten Libraries
 Summary(fr):	Boite Ю outil d'interfaГage graphique Tk pour Tcl avec librairies partagИes
 Summary(pl):	Tk GUI narzЙdzia dla Tcl wraz z bibliotekami dynamicznymi
+Summary(ru):	Tk GUI toolkit для Tcl
 Summary(tr):	Tk, TCL iГin grafik kullanЩcЩ arabirimi araГ takЩmЩdЩr
+Summary(uk):	Tk GUI toolkit для Tcl
 Name:		tk
 Version:	8.3.4
-Release:	2
+Release:	3
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	ftp://ftp.scriptics.com/pub/tcl/tcl8_3/%{name}%{version}.tar.gz
@@ -41,15 +43,37 @@ des fonctionnalitИs entiИrement interfacИes en Ю peine plus de temps
 qu'avec interface texte. Les applications Tcl/Tk peuvent aussi
 fonctionner sur des plateformes Windows ou Macintosh.
 
+%description -l ja
+Tk ╓о tcl ╔╧╔╞╔Й╔в╔х╦ю╦Л╓хл╘юэ╓кф╟╨Н╓╧╓К╓Х╓╕╓к╔г╔╤╔╓╔С╓╣╓Л╓© X Window
+System ╓н╔╕╔ё╔╦╔╖╔ц╔х╔╩╔ц╔х╓г╓╧║ё ╔ф╔╜╔╧╔х╔ы║╪╔╧╓н╔╓╔С╔©║╪╔у╔╖║╪╔╧╓Р
+╨нмя╓╥╓ф╓К╓н╓г║╒╓╒╓И╓Ф╓Кфцд╖╓Р╓Б╓ц╓© GUI
+╓Р╬╞╓й╓╓╩Ч╢ж╓г║╒╢йц╠╓й╔в╔М╔╟╔И ╔Ю╓г╫Я╓╞╓Ё╓х╓╛╓г╓╜╓ч╓╧║ёTcl/Tk
+╔╒╔в╔Й╔╠║╪╔╥╔Г╔С╓о Windows ╓Д Macintosh
+╓н╔в╔И╔ц╔х╔у╔╘║╪╔Ю╓г╪б╧т╓╧╓К╓Ё╓х╓Б╓г╓╜╓ч╓╧║ё
+
 %description -l pl
 Tk jest zbiorem kontrolek X Window, przeznaczonym do pracy z jЙzykiem
 skryptowym tcl. Pakiet ten pozwoli Ci na pisanie prostych programСw z
 GUI.
 
+%description -l ru
+Tk - это набор экранных примитивов для X Windows, предназначенный для
+работы с интерпретерируемым языком tcl. Он позволяет писать
+полноценные программы с графическим интерфейсом практически за то же
+время, что и программы текстового режима. Программы на Tcl/Tk также
+могут работать под Windows и Macintosh.
+
 %description -l tr
 Tk, tcl betimleme dili ile birlikte kullanЩlmak Эzere tasarlanmЩЧ bir
 X Windows arayЭz elemanЩ kЭmesidir. Tcl/Tk uygulamalarЩ MS-Windows ve
 Macintosh ortamlarЩnda da ГalЩЧtЩrЩlabilir.
+
+%description -l uk
+Tk - це наб╕р екранних прим╕тив╕в для X Windows, призначений для
+роботи з ╕нтерпретованою мовою tcl. В╕н дозволя╓ писати повноц╕нн╕
+програми з граф╕чним ╕нтерфейсом практично за той же час, що ╕
+програми текстового режиму. Програми на Tcl/Tk також можуть працювати
+п╕д Windoze та Macintosh.
 
 %package devel
 Summary:	Tk GUI toolkit for Tcl header files and development documentation
