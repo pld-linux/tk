@@ -7,12 +7,12 @@ Summary(tr):	Tk, TCL için grafik kullanýcý arabirimi araç takýmýdýr
 Summary(uk):	Tk GUI toolkit ÄÌÑ Tcl
 Name:		tk
 %define major	8.4
-Version:	%{major}.5
-Release:	2
+Version:	%{major}.6
+Release:	1
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	http://dl.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
-# Source0-md5:	3bafe03fc79dc72c3c8bfbe2c54cc52a
+# Source0-md5:	24b7774d54c1c568cabe16f3498ddccd
 Patch0:		%{name}-ieee.patch
 Patch1:		%{name}-manlnk.patch
 Patch2:		%{name}-pil.patch
@@ -93,7 +93,7 @@ Tk - ÃÅ ÎÁÂ¦Ò ÅËÒÁÎÎÉÈ ÐÒÉÍ¦ÔÉ×¦× ÄÌÑ X Window, ÐÒÉÚÎÁÞÅÎÉÊ ÄÌÑ
 Summary:	Tk GUI toolkit for Tcl header files and development documentation
 Summary(pl):	Narzêdzia Tk GUI - pliki nag³ówkowe i dokumentacja
 Group:		Development/Languages/Tcl
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	XFree86-devel
 Requires:	tcl-devel >= %{version}
 
@@ -107,7 +107,7 @@ Narzêdzia Tk GUI - pliki nag³ówkowe i dokumentacja.
 Summary:	Tk GUI toolkit for Tcl - demo programs
 Summary(pl):	Narzêdzia Tk GUI - programy demonstracyjne
 Group:		Development/Languages/Tcl
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description demo
 Tk GUI toolkit for Tcl - demo programs.
@@ -187,10 +187,12 @@ rm -rf $RPM_BUILD_ROOT
 %lang(el) %{_ulibdir}/tk%{major}/msgs/el.msg
 %{_ulibdir}/tk%{major}/msgs/en.msg
 %lang(en_GB) %{_ulibdir}/tk%{major}/msgs/en_gb.msg
+%lang(eo) %{_ulibdir}/tk%{major}/msgs/eo.msg
 %lang(es) %{_ulibdir}/tk%{major}/msgs/es.msg
 %lang(fr) %{_ulibdir}/tk%{major}/msgs/fr.msg
 %lang(it) %{_ulibdir}/tk%{major}/msgs/it.msg
 %lang(nl) %{_ulibdir}/tk%{major}/msgs/nl.msg
+%lang(pl) %{_ulibdir}/tk%{major}/msgs/pl.msg
 %lang(ru) %{_ulibdir}/tk%{major}/msgs/ru.msg
 %{_mandir}/man1/*
 
