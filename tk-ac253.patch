@@ -1,0 +1,29 @@
+--- tk8.3.4/unix/tcl.m4~	Sun Jun 23 05:01:12 2002
++++ tk8.3.4/unix/tcl.m4	Sun Jun 23 05:01:12 2002
+@@ -683,7 +683,7 @@
+ 
+ 	    # AIX v<=4.1 has some different flags than 4.2+
+ 	    if test "$system" = "AIX-4.1" -o "`uname -v`" -lt "4" ; then
+-		LIBOBJS="$LIBOBJS tclLoadAix.o"
++		AC_LIBOBJ="$AC_LIBOBJ tclLoadAix.o"
+ 		DL_LIBS="-lld"
+ 	    fi
+ 
+@@ -862,7 +862,7 @@
+             # is kind of overkill but it works.
+             # Disable inlining only when one of the
+             # files in compat/*.c is being linked in.
+-            if test x"${LIBOBJS}" != x ; then
++            if test x"${AC_LIBOBJ}" != x ; then
+                 EXTRA_CFLAGS="${EXTRA_CFLAGS} -fno-inline"
+             fi
+ 
+@@ -1853,7 +1853,7 @@
+ 	    AC_MSG_RESULT(ok)
+ 	else
+ 	    AC_MSG_RESULT(buggy)
+-	    LIBOBJS="$LIBOBJS fixstrtod.o"
++	    AC_LIBOBJ="$AC_LIBOBJ fixstrtod.o"
+ 	    AC_DEFINE(strtod, fixstrtod)
+ 	fi
+     fi
