@@ -7,7 +7,7 @@ Summary(tr):	Tk, TCL için grafik kullanýcý arabirimi araç takýmýdýr
 Summary(uk):	Tk GUI toolkit ÄÌÑ Tcl
 Name:		tk
 Version:	8.3.4
-Release:	4
+Release:	5
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	ftp://ftp.scriptics.com/pub/tcl/tcl8_3/%{name}%{version}.tar.gz
@@ -54,7 +54,7 @@ System ¤Î¥¦¥£¥¸¥§¥Ã¥È¥»¥Ã¥È¤Ç¤¹¡£ ¥Æ¥­¥¹¥È¥Ù¡¼¥¹¤Î¥¤¥ó¥¿¡¼¥Õ¥§¡¼¥¹¤ò
 
 %description -l pl
 Tk jest zbiorem kontrolek X Window, przeznaczonym do pracy z jêzykiem
-skryptowym tcl. Pakiet ten pozwoli Ci na pisanie prostych programów z
+skryptowym tcl. Pakiet ten pozwala na pisanie prostych programów z
 GUI.
 
 %description -l ru
@@ -85,14 +85,14 @@ Requires:	tcl-devel
 Requires:	XFree86-devel
 
 %description devel
-Tk GUI toolkit for Tcl header files and develppment documentation.
+Tk GUI toolkit for Tcl header files and development documentation.
 
 %description devel -l pl
-Narzêdzia tk GUI - pliki nag³ówkowe i dokumentacja.
+Narzêdzia Tk GUI - pliki nag³ówkowe i dokumentacja.
 
 %package demo
 Summary:	Tk GUI toolkit for Tcl - demo programs
-Summary(pl):	Narzêdzia Tk GUI - programy demostracjne
+Summary(pl):	Narzêdzia Tk GUI - programy demonstracyjne
 Group:		Development/Languages/Tcl
 Requires:	%{name} = %{version}
 
@@ -100,7 +100,7 @@ Requires:	%{name} = %{version}
 Tk GUI toolkit for Tcl - demo programs.
 
 %description demo -l pl
-Narzêdzia Tk GUI - programy demostracjne.
+Narzêdzia Tk GUI - programy demonstracyjne.
 
 %prep
 %setup -q -n %{name}%{version}
