@@ -130,6 +130,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so
 %dir %{_libdir}/tk8.3
 %{_libdir}/tk8.3/*.tcl
+%{_libdir}/tk8.3/tclIndex
 %{_mandir}/man1/*
 
 %files devel
