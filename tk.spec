@@ -7,8 +7,8 @@ Group:		Development/Languages/Tcl
 Group(de):	Entwicklung/Sprachen/Tcl
 Group(pl):	Programowanie/Jêzyki/Tcl
 Name:		tk
-Version:	8.3.2
-Release:	50
+Version:	8.3.3
+Release:	1
 License:	BSD
 Group:		Development/Languages/Tcl
 Group(de):	Entwicklung/Sprachen/Tcl
@@ -101,6 +101,8 @@ TCL_BIN_DIR=%{_libdir}
 %configure \
 	--disable-symbols \
 	--enable-shared \
+	--disable-threads \
+	--enable-64bit \
 	--enable-gcc
 
 %{__make}
