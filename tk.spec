@@ -7,7 +7,7 @@ Summary(tr):	Tk, TCL için grafik kullanýcý arabirimi araç takýmýdýr
 Summary(uk):	Tk GUI toolkit ÄÌÑ Tcl
 Name:		tk
 Version:	8.3.4
-Release:	3
+Release:	4
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	ftp://ftp.scriptics.com/pub/tcl/tcl8_3/%{name}%{version}.tar.gz
@@ -142,11 +142,11 @@ mv -f $RPM_BUILD_ROOT%{_bindir}/wish8.3 $RPM_BUILD_ROOT%{_bindir}/wish
 
 install ../generic/tkInt.h $RPM_BUILD_ROOT%{_includedir}
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
