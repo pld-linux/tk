@@ -18,7 +18,7 @@ Patch2:		tk-manlnk.patch
 Patch4:		tk-pil.patch
 Patch5:		tk-headers_fix.patch
 Icon:		tk.gif
-BuildRequires:	tcl-devel
+BuildRequires:	tcl-devel >= 8.3.2
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
