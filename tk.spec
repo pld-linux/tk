@@ -8,7 +8,7 @@ Group(de):	Entwicklung/Sprachen/Tcl
 Group(pl):	Programowanie/Jêzyki/Tcl
 Name:		tk
 Version:	8.3.2
-Release:	49
+Release:	50
 License:	BSD
 Group:		Development/Languages/Tcl
 Group(de):	Entwicklung/Sprachen/Tcl
@@ -64,6 +64,7 @@ Group(de):	Entwicklung/Sprachen/Tcl
 Group(pl):	Programowanie/Jêzyki/Tcl
 Requires:	%{name} = %{version}
 Requires:	tcl-devel
+Requires:	XFree86-devel
 
 %description devel
 Tk GUI toolkit for Tcl header files and develppment documentation.
