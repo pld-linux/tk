@@ -140,9 +140,3 @@ rm -rf $RPM_BUILD_ROOT
 %files demo
 %defattr(-,root,root,755)
 %{_libdir}/tk8.0/demos
-
-%changelog
-* Sun Jun  6 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [8.0.5-2]
-- based on RH spec,
-- spec rewrited by PLD team.
