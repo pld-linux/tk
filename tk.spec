@@ -159,7 +159,9 @@ ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk.so
 ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk%{major}.so
 mv -f $RPM_BUILD_ROOT%{_bindir}/wish%{major} $RPM_BUILD_ROOT%{_bindir}/wish
 
+if [ "%{_libdir}" != "%{_ulibdir}" ] ; then
 mv $RPM_BUILD_ROOT%{_libdir}/tk* $RPM_BUILD_ROOT%{_ulibdir}/
+fi
 
 install generic/tkInt.h $RPM_BUILD_ROOT%{_includedir}
 
