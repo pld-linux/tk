@@ -87,12 +87,12 @@ Narzêdzia Tk GUI - programy demostracjne.
 cd unix
 autoconf
 TCL_BIN_DIR=%{_libdir} \
-CFLAGS="$RPM_OPT_FLAGS -D_REENTRANT" LDFLAGS="-s" \
+LDFLAGS="-s" \
 ./configure %{_target_platform} \
 	--prefix=%{_prefix} \
 	--enable-shared \
 	--enable-gcc
-make
+make CFLAGS_OPTIMIZE="$RPM_OPT_FLAGS -D_REENTRANT"
 
 %install
 rm -rf $RPM_BUILD_ROOT
