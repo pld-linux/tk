@@ -6,7 +6,7 @@ Summary(tr):	Tk, TCL için grafik kullanýcý arabirimi araç takýmýdýr
 Group:		Development/Languages/Tcl
 Name:		tk
 Version:	8.0.5
-Release:	2
+Release:	3
 Copyright:	BSD
 Group:		Development/Languages/Tcl
 Group(pl):	Programowanie/Jêzyki/Tcl
@@ -88,12 +88,13 @@ Narzêdzia Tk GUI - programy demostracjne.
 %build
 cd unix
 autoconf
-TCL_BIN_DIR=%{_libdir} \
-LDFLAGS="-s" \
-./configure %{_target_platform} \
-	--prefix=%{_prefix} \
+TCL_BIN_DIR=%{_libdir}
+LDFLAGS="-s"
+export TCL_BIN_DIR LDFLAGS
+%configure \
 	--enable-shared \
 	--enable-gcc
+
 make CFLAGS_OPTIMIZE="$RPM_OPT_FLAGS -D_REENTRANT"
 
 sed -e "s#%{_builddir}/%{name}%{version}/unix#/usr/lib#; \
