@@ -106,14 +106,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755, root, root) /usr/lib/lib*.so
 %dir /usr/lib/tk8.0
 /usr/lib/tk8.0/*.tcl
-%attr(644, root, root) /usr/man/man1/*
+%attr(644, root, man) /usr/man/man1/*
 
 %files devel
 %defattr(644, root, root, 755)
 /usr/include/*
 /usr/lib/tkConfig.sh
-%attr(644, root, root) /usr/man/man3/*
-%attr(644, root, root) /usr/man/mann/*
+%attr(644, root, man) /usr/man/man3/*
+%attr(644, root, man) /usr/man/mann/*
 
 %files demo
 %defattr(-, root, root, 755)
