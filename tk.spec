@@ -30,14 +30,14 @@ Requires:	tcl >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Tk is a X Windows widget set designed to work closely with the tcl
+Tk is a X Window widget set designed to work closely with the tcl
 scripting language. It allows you to write simple programs with full
 featured GUI's in only a little more time then it takes to write a
 text based interface. Tcl/Tk applications can also be run on Windows
 and Macintosh platforms.
 
 %description -l de
-Tk ist ein Widget-Satz fЭr X-Windows fЭr den Einsatz mit der Script
+Tk ist ein Widget-Satz fЭr X-Window fЭr den Einsatz mit der Script
 Sprache tcl. Sie kЖnnen einfache Programme mit voll funktionsfДhigen
 GUIs in fast genauso schnell schreiben, wie eine zeichenorientierte
 OberflДche. Tcl/Tk-Anwendungen kЖnnen auch auf Windows und
@@ -64,7 +64,7 @@ skryptowym tcl. Pakiet ten pozwala na pisanie prostych programСw z
 GUI.
 
 %description -l ru
-Tk - это набор экранных примитивов для X Windows, предназначенный для
+Tk - это набор экранных примитивов для X Window, предназначенный для
 работы с интерпретерируемым языком tcl. Он позволяет писать
 полноценные программы с графическим интерфейсом практически за то же
 время, что и программы текстового режима. Программы на Tcl/Tk также
@@ -72,11 +72,11 @@ Tk - это набор экранных примитивов для X Windows, предназначенный для
 
 %description -l tr
 Tk, tcl betimleme dili ile birlikte kullanЩlmak Эzere tasarlanmЩЧ bir
-X Windows arayЭz elemanЩ kЭmesidir. Tcl/Tk uygulamalarЩ MS-Windows ve
+X Window arayЭz elemanЩ kЭmesidir. Tcl/Tk uygulamalarЩ MS-Windows ve
 Macintosh ortamlarЩnda da ГalЩЧtЩrЩlabilir.
 
 %description -l uk
-Tk - це наб╕р екранних прим╕тив╕в для X Windows, призначений для
+Tk - це наб╕р екранних прим╕тив╕в для X Window, призначений для
 роботи з ╕нтерпретованою мовою tcl. В╕н дозволя╓ писати повноц╕нн╕
 програми з граф╕чним ╕нтерфейсом практично за той же час, що ╕
 програми текстового режиму. Програми на Tcl/Tk також можуть працювати
