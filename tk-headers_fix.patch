@@ -13,18 +13,22 @@ diff -Nru tk8.0.5/generic/tkPort.h tk8.0.5.new/generic/tkPort.h
 diff -Nru tk8.0.5/unix/Makefile.in tk8.0.5.new/unix/Makefile.in
 --- tk8.0.5/unix/Makefile.in	Tue Mar  9 07:53:50 1999
 +++ tk8.0.5.new/unix/Makefile.in	Mon Sep  6 14:13:31 1999
-@@ -396,7 +396,13 @@
- 		fi; \
- 	    done;
- 	@echo "Installing tk.h"
--	@$(INSTALL_DATA) $(GENERIC_DIR)/tk.h $(INCLUDE_INSTALL_DIR)/tk.h
-+	@$(INSTALL_DATA) $(GENERIC_DIR)/tk.h $(INCLUDE_INSTALL_DIR)
-+	@$(INSTALL_DATA) $(GENERIC_DIR)/default.h $(INCLUDE_INSTALL_DIR)
-+	@$(INSTALL_DATA) $(GENERIC_DIR)/tkInt.h $(INCLUDE_INSTALL_DIR)
-+	@$(INSTALL_DATA) $(GENERIC_DIR)/tkPort.h $(INCLUDE_INSTALL_DIR)
-+	@$(INSTALL_DATA) $(UNIX_DIR)/tkUnixDefault.h $(INCLUDE_INSTALL_DIR)
-+	@$(INSTALL_DATA) $(UNIX_DIR)/tkUnixInt.h $(INCLUDE_INSTALL_DIR)
-+	@$(INSTALL_DATA) $(UNIX_DIR)/tkUnixPort.h $(INCLUDE_INSTALL_DIR)
- 	for i in $(SRC_DIR)/library/*.tcl $(SRC_DIR)/library/tclIndex $(SRC_DIR)/library/prolog.ps $(UNIX_DIR)/tkAppInit.c; \
- 	    do \
- 	    echo "Installing $$i"; \
+@@ -396,7 +396,17 @@
+ INSTALL_HDRS = $(GENERIC_DIR)/tk.h  \
+ 	$(GENERIC_DIR)/tkInt.h \
+ 	$(GENERIC_DIR)/tkDecls.h \
+-	$(GENERIC_DIR)/tkIntXlibDecls.h
++	$(GENERIC_DIR)/tkIntDecls.h \
++	$(GENERIC_DIR)/tkCanvas.h \
++	$(GENERIC_DIR)/tkIntXlibDecls.h \
++	$(GENERIC_DIR)/tkPort.h \
++	$(GENERIC_DIR)/default.h \
++	$(UNIX_DIR)/tkUnixDefault.h \
++	$(UNIX_DIR)/tkUnixInt.h \
++	$(UNIX_DIR)/tkUnixPort.h \
++	$(COMPAT_DIR)/limits.h \
++	$(COMPAT_DIR)/unistd.h \
++	$(COMPAT_DIR)/stdlib.h \
+ 
+ DEMOPROGS = browse hello ixset rmt rolodex square tcolor timer widget
+ 
