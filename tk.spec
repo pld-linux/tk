@@ -7,12 +7,12 @@ Summary(ru):	Tk GUI toolkit ÄÌÑ Tcl
 Summary(tr):	Tk, TCL için grafik kullanýcý arabirimi araç takýmýdýr
 Summary(uk):	Tk GUI toolkit ÄÌÑ Tcl
 Name:		tk
-Version:	%{major}.3
-Release:	0.3
+Version:	%{major}.4
+Release:	0.1
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	http://dl.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
-# Source0-md5:	e3ec11e314c9541b84e0415fbe9d947e
+# Source0-md5:	ad54f0adb8a43e4d9d54ff2599443c8a
 Patch0:		%{name}-ieee.patch
 Patch1:		%{name}-manlnk.patch
 Patch2:		%{name}-pil.patch
@@ -23,9 +23,9 @@ Patch6:		%{name}-soname_fix.patch
 Patch7:		%{name}-norpath.patch
 Icon:		tk.gif
 URL:		http://www.tcl.tk/
+BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	tcl-devel >= %{version}
-BuildRequires:	XFree86-devel
 Requires:	tcl >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -87,8 +87,8 @@ Summary:	Tk GUI toolkit for Tcl header files and development documentation
 Summary(pl):	Narzêdzia Tk GUI - pliki nag³ówkowe i dokumentacja
 Group:		Development/Languages/Tcl
 Requires:	%{name} = %{version}
-Requires:	tcl-devel >= %{version}
 Requires:	XFree86-devel
+Requires:	tcl-devel >= %{version}
 
 %description devel
 Tk GUI toolkit for Tcl header files and development documentation.
@@ -165,6 +165,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/tk%{major}/*.tcl
 %{_libdir}/tk%{major}/tclIndex
 %{_libdir}/tk%{major}/tkAppInit.c
+%{_libdir}/tk%{major}/prolog.ps
+%{_libdir}/tk%{major}/images
 %dir %{_libdir}/tk%{major}/msgs
 %lang(cs) %{_libdir}/tk%{major}/msgs/cs.msg
 %lang(de) %{_libdir}/tk%{major}/msgs/de.msg
