@@ -1,6 +1,6 @@
-diff -Nru tk8.0.5/generic/tkPort.h tk8.0.5.new/generic/tkPort.h
---- tk8.0.5/generic/tkPort.h	Mon Sep 14 20:23:16 1998
-+++ tk8.0.5.new/generic/tkPort.h	Mon Sep  6 14:14:22 1999
+diff -durN tk8.3.3.orig/generic/tkPort.h tk8.3.3/generic/tkPort.h
+--- tk8.3.3.orig/generic/tkPort.h	Mon Sep 14 20:23:16 1998
++++ tk8.3.3/generic/tkPort.h	Sat Jun 16 20:12:24 2001
 @@ -29,7 +29,7 @@
  #   if defined(MAC_TCL)
  #	include "tkMacPort.h"
@@ -10,25 +10,20 @@ diff -Nru tk8.0.5/generic/tkPort.h tk8.0.5.new/generic/tkPort.h
  #   endif
  #endif
  
-diff -Nru tk8.0.5/unix/Makefile.in tk8.0.5.new/unix/Makefile.in
---- tk8.0.5/unix/Makefile.in	Tue Mar  9 07:53:50 1999
-+++ tk8.0.5.new/unix/Makefile.in	Mon Sep  6 14:13:31 1999
-@@ -396,7 +396,17 @@
- INSTALL_HDRS = $(GENERIC_DIR)/tk.h  \
- 	$(GENERIC_DIR)/tkInt.h \
- 	$(GENERIC_DIR)/tkDecls.h \
--	$(GENERIC_DIR)/tkIntXlibDecls.h
-+	$(GENERIC_DIR)/tkIntDecls.h \
-+	$(GENERIC_DIR)/tkCanvas.h \
-+	$(GENERIC_DIR)/tkIntXlibDecls.h \
-+	$(GENERIC_DIR)/tkPort.h \
-+	$(GENERIC_DIR)/default.h \
-+	$(UNIX_DIR)/tkUnixDefault.h \
-+	$(UNIX_DIR)/tkUnixInt.h \
-+	$(UNIX_DIR)/tkUnixPort.h \
-+	$(COMPAT_DIR)/limits.h \
-+	$(COMPAT_DIR)/unistd.h \
-+	$(COMPAT_DIR)/stdlib.h \
- 
- DEMOPROGS = browse hello ixset rmt rolodex square tcolor timer widget
- 
+diff -durN tk8.3.3.orig/unix/Makefile.in tk8.3.3/unix/Makefile.in
+--- tk8.3.3.orig/unix/Makefile.in	Fri Apr  6 04:03:05 2001
++++ tk8.3.3/unix/Makefile.in	Sat Jun 16 20:16:12 2001
+@@ -489,7 +489,12 @@
+ 	    fi
+ 	@echo "Installing header files";
+ 	@for i in $(GENERIC_DIR)/tk.h $(GENERIC_DIR)/tkPlatDecls.h \
+-		$(GENERIC_DIR)/tkDecls.h $(GENERIC_DIR)/tkIntXlibDecls.h ; \
++		$(GENERIC_DIR)/tkDecls.h $(GENERIC_DIR)/tkIntXlibDecls.h \
++		$(GENERIC_DIR)/tkIntDecls.h $(GENERIC_DIR)/tkCanvas.h \
++		$(UNIX_DIR)/tkUnixPort.h $(GENERIC_DIR)/tkPort.h \
++		$(GENERIC_DIR)/default.h $(UNIX_DIR)/tkUnixDefault.h \
++		$(UNIX_DIR)/tkUnixInt.h $(COMPAT_DIR)/limits.h \
++		$(COMPAT_DIR)/unistd.h $(COMPAT_DIR)/stdlib.h ; \
+ 	    do \
+ 	    $(INSTALL_DATA) $$i $(INCLUDE_INSTALL_DIR); \
+ 	    done;
