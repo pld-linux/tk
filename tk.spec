@@ -1,4 +1,3 @@
-%define major 8.4
 Summary:	Tk GUI toolkit for Tcl, with shared libraries
 Summary(de):	Tk GUI-Toolkit für Tcl mit gemeinsam genutzten Libraries
 Summary(fr):	Boite à outil d'interfaçage graphique Tk pour Tcl avec librairies partagées
@@ -7,12 +6,13 @@ Summary(ru):	Tk GUI toolkit ÄÌÑ Tcl
 Summary(tr):	Tk, TCL için grafik kullanýcý arabirimi araç takýmýdýr
 Summary(uk):	Tk GUI toolkit ÄÌÑ Tcl
 Name:		tk
-Version:	%{major}.4
-Release:	1.1
+%define major	8.4
+Version:	%{major}.5
+Release:	1
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	http://dl.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
-# Source0-md5:	ad54f0adb8a43e4d9d54ff2599443c8a
+# Source0-md5:	3bafe03fc79dc72c3c8bfbe2c54cc52a
 Patch0:		%{name}-ieee.patch
 Patch1:		%{name}-manlnk.patch
 Patch2:		%{name}-pil.patch
@@ -147,8 +147,7 @@ mv -f tkConfig.sh.new tkConfig.sh
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_mandir}
 
-cd unix
-%{__make} install \
+%{__make} -C unix install \
 	INSTALL_ROOT=$RPM_BUILD_ROOT \
 	MAN_INSTALL_DIR=$RPM_BUILD_ROOT%{_mandir}
 
@@ -156,7 +155,7 @@ ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk.so
 ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk%{major}.so
 mv -f $RPM_BUILD_ROOT%{_bindir}/wish%{major} $RPM_BUILD_ROOT%{_bindir}/wish
 
-install ../generic/tkInt.h $RPM_BUILD_ROOT%{_includedir}
+install generic/tkInt.h $RPM_BUILD_ROOT%{_includedir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
