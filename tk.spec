@@ -1,19 +1,20 @@
-Summary:     Tk GUI toolkit for Tcl, with shared libraries
-Summary(de): Tk GUI-Toolkit für Tcl mit gemeinsam genutzten Libraries
-Summary(fr): Boite à outil d'interfaçage graphique Tk pour Tcl avec librairies partagées.
-Summary(pl): Tk GUI narzêdzia dla Tcl wraz z bibliotekami dynamicznymi
-Summary(tr): Tk, TCL için grafik kullanýcý arabirimi araç takýmýdýr
-Group:       Development/Languages/Tcl
-Name:        tk
-Version:     8.0.3
-Release:     1
-Source0:     ftp://ftp.scriptics.com/pub/tcl/tcl8_0/%{name}%{version}.tar.gz
-Patch0:      tk-8.0-ieee.patch
-Patch1:      tk-nochecktcl.patch
-Group:       Development/Languages/Tcl
-Copyright:   BSD
-Icon:        tk.gif
-Buildroot:   /tmp/%{name}-%{version}-root
+Summary:	Tk GUI toolkit for Tcl, with shared libraries
+Summary(de):	Tk GUI-Toolkit für Tcl mit gemeinsam genutzten Libraries
+Summary(fr):	Boite à outil d'interfaçage graphique Tk pour Tcl avec librairies partagées.
+Summary(pl):	Tk GUI narzêdzia dla Tcl wraz z bibliotekami dynamicznymi
+Summary(tr):	Tk, TCL için grafik kullanýcý arabirimi araç takýmýdýr
+Group:		Development/Languages/Tcl
+Name:		tk
+Version:	8.0.5
+Release:	1
+Source0:	ftp://ftp.scriptics.com/pub/tcl/tcl8_0/%{name}%{version}.tar.gz
+Patch0:		tk-ieee.patch
+Patch1:		tk-nochecktcl.patch
+Group:		Development/Languages/Tcl
+Group(pl):	Programowanie/Jêzyki/Tcl
+Copyright:	BSD
+Icon:		tk.gif
+Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
 Tk is a X Windows widget set designed to work closely with the tcl scripting
@@ -46,10 +47,11 @@ Windows arayüz elemaný kümesidir. Tcl/Tk uygulamalarý MS-Windows ve
 Macintosh ortamlarýnda da çalýþtýrýlabilir.
 
 %package devel
-Summary:     Tk GUI toolkit for Tcl header files and development documentation
-Summary(pl): Narzêdzia Tk GUI - pliki nag³ówkowe i dokumentacja
-Group:       Development/Languages/Tcl
-Requires:    %{name} = %{version}
+Summary:	Tk GUI toolkit for Tcl header files and development documentation
+Summary(pl):	Narzêdzia Tk GUI - pliki nag³ówkowe i dokumentacja
+Group:		Development/Languages/Tcl
+Group(pl):	Programowanie/Jêzyki/Tcl
+Requires:	%{name} = %{version}
 
 %description devel
 Tk GUI toolkit for Tcl header files and develppment documentation.
@@ -58,10 +60,11 @@ Tk GUI toolkit for Tcl header files and develppment documentation.
 Narzêdzia tk GUI - pliki nag³ówkowe i dokumentacja.
 
 %package demo
-Summary:     Tk GUI toolkit for Tcl - demo programs
-Summary(pl): Narzêdzia Tk GUI - programy demostracjne
-Group:       Development/Languages/Tcl
-Requires:    %{name} = %{version}
+Summary:	Tk GUI toolkit for Tcl - demo programs
+Summary(pl):	Narzêdzia Tk GUI - programy demostracjne
+Group:		Development/Languages/Tcl
+Group(pl):	Programowanie/Jêzyki/Tcl
+Requires:	%{name} = %{version}
 
 %description demo
 Tk GUI toolkit for Tcl - demo programs.
@@ -79,7 +82,8 @@ autoconf
 %build
 cd unix
 TCL_BIN_DIR=/usr/lib \
-CFLAGS="$RPM_OPT_FLAGS -D_REENTRANT" LDFLAGS="-s" ./configure \
+CFLAGS="$RPM_OPT_FLAGS -D_REENTRANT" LDFLAGS="-s" \
+./configure \
 	--prefix=/usr \
 	--enable-shared \
 	--enable-gcc
@@ -101,25 +105,30 @@ ln -sf wish8.0 $RPM_BUILD_ROOT/usr/bin/wish
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(644, root, root, 755)
-%attr(755, root, root) /usr/bin/*
-%attr(755, root, root) /usr/lib/lib*.so
+%defattr(644,root,root,755)
+%attr(755,root,root) /usr/bin/*
+%attr(755,root,root) /usr/lib/lib*.so
 %dir /usr/lib/tk8.0
 /usr/lib/tk8.0/*.tcl
-%attr(644, root, man) /usr/man/man1/*
+/usr/man/man1/*
 
 %files devel
-%defattr(644, root, root, 755)
+%defattr(644,root,root,755)
 /usr/include/*
 /usr/lib/tkConfig.sh
-%attr(644, root, man) /usr/man/man3/*
-%attr(644, root, man) /usr/man/mann/*
+/usr/man/man3/*
+/usr/man/mann/*
 
 %files demo
-%defattr(-, root, root, 755)
+%defattr(-,root,root,755)
 /usr/lib/tk8.0/demos
 
 %changelog
+* Tue Mar 23 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [8.0.5-1]
+- added Group(pl),
+- removed man group from man pages.
+
 * Thu Oct 13 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [8.0.3-1]
 - changed passing $RPM_OPT_FLAGS and added LDFLAGS,
