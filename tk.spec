@@ -5,16 +5,16 @@ Summary(pl):	Tk GUI narzêdzia dla Tcl wraz z bibliotekami dynamicznymi
 Summary(tr):	Tk, TCL için grafik kullanýcý arabirimi araç takýmýdýr
 Group:		Development/Languages/Tcl
 Name:		tk
-Version:	8.0.5
-Release:	37
+Version:	8.3.2
+Release:	1
 Copyright:	BSD
 Group:		Development/Languages/Tcl
 Group(pl):	Programowanie/Jêzyki/Tcl
-Source0:	ftp://ftp.scriptics.com/pub/tcl/tcl8_0/%{name}%{version}.tar.gz
+Source0:	ftp://ftp.scriptics.com/pub/tcl/tcl8_3/%{name}%{version}.tar.gz
 Patch0:		tk-ieee.patch
-Patch1:		tk-nochecktcl.patch
+#Patch1:		tk-nochecktcl.patch
 Patch2:		tk-manlnk.patch
-Patch3:		tk-elide.patch
+#Patch3:		tk-elide.patch - applied by maintainer (?)
 Patch4:		tk-pil.patch
 Patch5:		tk-headers_fix.patch
 Icon:		tk.gif
@@ -81,9 +81,9 @@ Narzêdzia Tk GUI - programy demostracjne.
 %prep
 %setup -q -n %{name}%{version}
 %patch0 -p1
-%patch1 -p1
+#%patch1 -p1
 %patch2 -p1
-%patch3 -p1
+#%patch3 -p1
 %patch4 -p1
 %patch5 -p1
 
@@ -112,12 +112,11 @@ cd unix
 	INSTALL_ROOT=$RPM_BUILD_ROOT \
 	MAN_INSTALL_DIR=$RPM_BUILD_ROOT%{_mandir}
 
-ln -sf libtk8.0.so $RPM_BUILD_ROOT%{_libdir}/libtk.so
-ln -sf wish8.0 $RPM_BUILD_ROOT%{_bindir}/wish
+ln -sf libtk8.3.so $RPM_BUILD_ROOT%{_libdir}/libtk.so
+ln -sf wish8.3 $RPM_BUILD_ROOT%{_bindir}/wish
 
-strip --strip-unneeded $RPM_BUILD_ROOT{%{_libdir}/lib*.so,%{_bindir}/*}
-
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man?/*
+#strip --strip-unneeded $RPM_BUILD_ROOT{%{_libdir}/lib*.so,%{_bindir}/*}
+#gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man?/*
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
@@ -129,17 +128,18 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so
-%dir %{_libdir}/tk8.0
-%{_libdir}/tk8.0/*.tcl
+%dir %{_libdir}/tk8.3
+%{_libdir}/tk8.3/*.tcl
 %{_mandir}/man1/*
 
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/*
 %attr(755,root,root) %{_libdir}/tkConfig.sh
+%{_libdir}/libtkstub8.3.a
 %{_mandir}/man3/*
 %{_mandir}/mann/*
 
 %files demo
 %defattr(-,root,root,755)
-%{_libdir}/tk8.0/demos
+%{_libdir}/tk8.3/demos
