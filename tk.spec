@@ -19,21 +19,23 @@ Patch3:		%{name}-headers_fix.patch
 Patch4:		%{name}-opt_flags_pass_fix.patch
 Patch5:		%{name}-ac253.patch
 Icon:		tk.gif
+URL:		http://www.tcl.tk/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	tcl-devel >= %{version}
+Requires:	tcl >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Tk is a X Windows widget set designed to work closely with the tcl
+Tk is a X Window widget set designed to work closely with the tcl
 scripting language. It allows you to write simple programs with full
 featured GUI's in only a little more time then it takes to write a
 text based interface. Tcl/Tk applications can also be run on Windows
 and Macintosh platforms.
 
 %description -l de
-Tk ist ein Widget-Satz für X-Windows für den Einsatz mit der Script
-Sprache tcl. Sie können einfache Programme mit voll funktionsfähigen
+Tk ist ein Widget-Satz für X-Window für den Einsatz mit der Script
+Sprache Tcl. Sie können einfache Programme mit voll funktionsfähigen
 GUIs in fast genauso schnell schreiben, wie eine zeichenorientierte
 Oberfläche. Tcl/Tk-Anwendungen können auch auf Windows und
 Macintosh-Plattformen ausgeführt werden.
@@ -49,7 +51,7 @@ fonctionner sur des plateformes Windows ou Macintosh.
 Tk ¤Ï tcl ¥¹¥¯¥ê¥×¥È¸À¸ì¤ÈÌ©ÀÜ¤ËÆ°ºî¤¹¤ë¤è¤¦¤Ë¥Ç¥¶¥¤¥ó¤µ¤ì¤¿ X Window
 System ¤Î¥¦¥£¥¸¥§¥Ã¥È¥»¥Ã¥È¤Ç¤¹¡£ ¥Æ¥­¥¹¥È¥Ù¡¼¥¹¤Î¥¤¥ó¥¿¡¼¥Õ¥§¡¼¥¹¤ò
 ºÎÍÑ¤·¤Æ¤ë¤Î¤Ç¡¢¤¢¤é¤æ¤ëÆÃÄ§¤ò¤â¤Ã¤¿ GUI
-¤ò¾¯¤Ê¤¤»þ´Ö¤Ç¡¢´ÊÃ±¤Ê¥×¥í¥°¥é ¥à¤Ç½ñ¤¯¤³¤È¤¬¤Ç¤­¤Þ¤¹¡£Tcl/Tk
+¤ò¾¯¤Ê¤¤»þ´Ö¤Ç¡¢´ÊÃ±¤Ê¥×¥í¥°¥é ¥à¤Ç½ñ¤¯¤³¤È¤¬¤Ç¤­¤Þ¤¹¡£ Tcl/Tk
 ¥¢¥×¥ê¥±¡¼¥·¥ç¥ó¤Ï Windows ¤ä Macintosh
 ¤Î¥×¥é¥Ã¥È¥Õ¥©¡¼¥à¤Ç¼Â¹Ô¤¹¤ë¤³¤È¤â¤Ç¤­¤Þ¤¹¡£
 
@@ -59,20 +61,20 @@ skryptowym tcl. Pakiet ten pozwoli Ci na pisanie prostych programów z
 GUI.
 
 %description -l ru
-Tk - ÜÔÏ ÎÁÂÏÒ ÜËÒÁÎÎÙÈ ÐÒÉÍÉÔÉ×Ï× ÄÌÑ X Windows, ÐÒÅÄÎÁÚÎÁÞÅÎÎÙÊ ÄÌÑ
-ÒÁÂÏÔÙ Ó ÉÎÔÅÒÐÒÅÔÅÒÉÒÕÅÍÙÍ ÑÚÙËÏÍ tcl. ïÎ ÐÏÚ×ÏÌÑÅÔ ÐÉÓÁÔØ
+Tk - ÜÔÏ ÎÁÂÏÒ ÜËÒÁÎÎÙÈ ÐÒÉÍÉÔÉ×Ï× ÄÌÑ X Window, ÐÒÅÄÎÁÚÎÁÞÅÎÎÙÊ ÄÌÑ
+ÒÁÂÏÔÙ Ó ÉÎÔÅÒÐÒÅÔÅÒÉÒÕÅÍÙÍ ÑÚÙËÏÍ Tcl. ïÎ ÐÏÚ×ÏÌÑÅÔ ÐÉÓÁÔØ
 ÐÏÌÎÏÃÅÎÎÙÅ ÐÒÏÇÒÁÍÍÙ Ó ÇÒÁÆÉÞÅÓËÉÍ ÉÎÔÅÒÆÅÊÓÏÍ ÐÒÁËÔÉÞÅÓËÉ ÚÁ ÔÏ ÖÅ
 ×ÒÅÍÑ, ÞÔÏ É ÐÒÏÇÒÁÍÍÙ ÔÅËÓÔÏ×ÏÇÏ ÒÅÖÉÍÁ. ðÒÏÇÒÁÍÍÙ ÎÁ Tcl/Tk ÔÁËÖÅ
 ÍÏÇÕÔ ÒÁÂÏÔÁÔØ ÐÏÄ Windows É Macintosh.
 
 %description -l tr
-Tk, tcl betimleme dili ile birlikte kullanýlmak üzere tasarlanmýþ bir
-X Windows arayüz elemaný kümesidir. Tcl/Tk uygulamalarý MS-Windows ve
+Tk, Tcl betimleme dili ile birlikte kullanýlmak üzere tasarlanmýþ bir
+X Window arayüz elemaný kümesidir. Tcl/Tk uygulamalarý MS-Windows ve
 Macintosh ortamlarýnda da çalýþtýrýlabilir.
 
 %description -l uk
-Tk - ÃÅ ÎÁÂ¦Ò ÅËÒÁÎÎÉÈ ÐÒÉÍ¦ÔÉ×¦× ÄÌÑ X Windows, ÐÒÉÚÎÁÞÅÎÉÊ ÄÌÑ
-ÒÏÂÏÔÉ Ú ¦ÎÔÅÒÐÒÅÔÏ×ÁÎÏÀ ÍÏ×ÏÀ tcl. ÷¦Î ÄÏÚ×ÏÌÑ¤ ÐÉÓÁÔÉ ÐÏ×ÎÏÃ¦ÎÎ¦
+Tk - ÃÅ ÎÁÂ¦Ò ÅËÒÁÎÎÉÈ ÐÒÉÍ¦ÔÉ×¦× ÄÌÑ X Window, ÐÒÉÚÎÁÞÅÎÉÊ ÄÌÑ
+ÒÏÂÏÔÉ Ú ¦ÎÔÅÒÐÒÅÔÏ×ÁÎÏÀ ÍÏ×ÏÀ Tcl. ÷¦Î ÄÏÚ×ÏÌÑ¤ ÐÉÓÁÔÉ ÐÏ×ÎÏÃ¦ÎÎ¦
 ÐÒÏÇÒÁÍÉ Ú ÇÒÁÆ¦ÞÎÉÍ ¦ÎÔÅÒÆÅÊÓÏÍ ÐÒÁËÔÉÞÎÏ ÚÁ ÔÏÊ ÖÅ ÞÁÓ, ÝÏ ¦
 ÐÒÏÇÒÁÍÉ ÔÅËÓÔÏ×ÏÇÏ ÒÅÖÉÍÕ. ðÒÏÇÒÁÍÉ ÎÁ Tcl/Tk ÔÁËÏÖ ÍÏÖÕÔØ ÐÒÁÃÀ×ÁÔÉ
 Ð¦Ä Windoze ÔÁ Macintosh.
@@ -81,19 +83,19 @@ Tk - ÃÅ ÎÁÂ¦Ò ÅËÒÁÎÎÉÈ ÐÒÉÍ¦ÔÉ×¦× ÄÌÑ X Windows, ÐÒÉÚÎÁÞÅÎÉÊ ÄÌÑ
 Summary:	Tk GUI toolkit for Tcl header files and development documentation
 Summary(pl):	Narzêdzia Tk GUI - pliki nag³ówkowe i dokumentacja
 Group:		Development/Languages/Tcl
-Requires:	%{name} = %{version}
-Requires:	tcl-devel
 Requires:	XFree86-devel
+Requires:	%{name} = %{version}
+Requires:	tcl-devel >= %{version}
 
 %description devel
 Tk GUI toolkit for Tcl header files and develppment documentation.
 
 %description devel -l pl
-Narzêdzia tk GUI - pliki nag³ówkowe i dokumentacja.
+Narzêdzia Tk GUI - pliki nag³ówkowe i dokumentacja.
 
 %package demo
 Summary:	Tk GUI toolkit for Tcl - demo programs
-Summary(pl):	Narzêdzia Tk GUI - programy demostracjne
+Summary(pl):	Narzêdzia Tk GUI - programy demonstracjne
 Group:		Development/Languages/Tcl
 Requires:	%{name} = %{version}
 
@@ -101,7 +103,7 @@ Requires:	%{name} = %{version}
 Tk GUI toolkit for Tcl - demo programs.
 
 %description demo -l pl
-Narzêdzia Tk GUI - programy demostracjne.
+Narzêdzia Tk GUI - programy demonstracjne.
 
 %prep
 %setup -q -n %{name}%{version}
