@@ -123,7 +123,7 @@ cd unix
 ln -sf libtk8.3.so $RPM_BUILD_ROOT%{_libdir}/libtk.so
 mv -f $RPM_BUILD_ROOT%{_bindir}/wish8.3 $RPM_BUILD_ROOT%{_bindir}/wish
 
-install generic/tkInt.h $RPM_BUILD_ROOT%{_includedir}
+install ../generic/tkInt.h $RPM_BUILD_ROOT%{_includedir}
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
