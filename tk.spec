@@ -30,7 +30,7 @@ Requires:	tcl >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Tk is a X Window widget set designed to work closely with the tcl
+Tk is a X Window widget set designed to work closely with the Tcl
 scripting language. It allows you to write simple programs with full
 featured GUI's in only a little more time then it takes to write a
 text based interface. Tcl/Tk applications can also be run on Windows
@@ -38,7 +38,7 @@ and Macintosh platforms.
 
 %description -l de
 Tk ist ein Widget-Satz fЭr X-Window fЭr den Einsatz mit der Script
-Sprache tcl. Sie kЖnnen einfache Programme mit voll funktionsfДhigen
+Sprache Tcl. Sie kЖnnen einfache Programme mit voll funktionsfДhigen
 GUIs in fast genauso schnell schreiben, wie eine zeichenorientierte
 OberflДche. Tcl/Tk-Anwendungen kЖnnen auch auf Windows und
 Macintosh-Plattformen ausgefЭhrt werden.
@@ -51,33 +51,33 @@ qu'avec interface texte. Les applications Tcl/Tk peuvent aussi
 fonctionner sur des plateformes Windows ou Macintosh.
 
 %description -l ja
-Tk ╓о tcl ╔╧╔╞╔Й╔в╔х╦ю╦Л╓хл╘юэ╓кф╟╨Н╓╧╓К╓Х╓╕╓к╔г╔╤╔╓╔С╓╣╓Л╓© X Window
+Tk ╓о Tcl ╔╧╔╞╔Й╔в╔х╦ю╦Л╓хл╘юэ╓кф╟╨Н╓╧╓К╓Х╓╕╓к╔г╔╤╔╓╔С╓╣╓Л╓© X Window
 System ╓н╔╕╔ё╔╦╔╖╔ц╔х╔╩╔ц╔х╓г╓╧║ё ╔ф╔╜╔╧╔х╔ы║╪╔╧╓н╔╓╔С╔©║╪╔у╔╖║╪╔╧╓Р
 ╨нмя╓╥╓ф╓К╓н╓г║╒╓╒╓И╓Ф╓Кфцд╖╓Р╓Б╓ц╓© GUI
-╓Р╬╞╓й╓╓╩Ч╢ж╓г║╒╢йц╠╓й╔в╔М╔╟╔И ╔Ю╓г╫Я╓╞╓Ё╓х╓╛╓г╓╜╓ч╓╧║ёTcl/Tk
+╓Р╬╞╓й╓╓╩Ч╢ж╓г║╒╢йц╠╓й╔в╔М╔╟╔И ╔Ю╓г╫Я╓╞╓Ё╓х╓╛╓г╓╜╓ч╓╧║ё Tcl/Tk
 ╔╒╔в╔Й╔╠║╪╔╥╔Г╔С╓о Windows ╓Д Macintosh
 ╓н╔в╔И╔ц╔х╔у╔╘║╪╔Ю╓г╪б╧т╓╧╓К╓Ё╓х╓Б╓г╓╜╓ч╓╧║ё
 
 %description -l pl
 Tk jest zbiorem kontrolek X Window, przeznaczonym do pracy z jЙzykiem
-skryptowym tcl. Pakiet ten pozwala na pisanie prostych programСw z
+skryptowym Tcl. Pakiet ten pozwala na pisanie prostych programСw z
 GUI.
 
 %description -l ru
 Tk - это набор экранных примитивов для X Window, предназначенный для
-работы с интерпретерируемым языком tcl. Он позволяет писать
+работы с интерпретерируемым языком Tcl. Он позволяет писать
 полноценные программы с графическим интерфейсом практически за то же
 время, что и программы текстового режима. Программы на Tcl/Tk также
 могут работать под Windows и Macintosh.
 
 %description -l tr
-Tk, tcl betimleme dili ile birlikte kullanЩlmak Эzere tasarlanmЩЧ bir
+Tk, Tcl betimleme dili ile birlikte kullanЩlmak Эzere tasarlanmЩЧ bir
 X Window arayЭz elemanЩ kЭmesidir. Tcl/Tk uygulamalarЩ MS-Windows ve
 Macintosh ortamlarЩnda da ГalЩЧtЩrЩlabilir.
 
 %description -l uk
 Tk - це наб╕р екранних прим╕тив╕в для X Window, призначений для
-роботи з ╕нтерпретованою мовою tcl. В╕н дозволя╓ писати повноц╕нн╕
+роботи з ╕нтерпретованою мовою Tcl. В╕н дозволя╓ писати повноц╕нн╕
 програми з граф╕чним ╕нтерфейсом практично за той же час, що ╕
 програми текстового режиму. Програми на Tcl/Tk також можуть працювати
 п╕д Windoze та Macintosh.
