@@ -110,14 +110,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /usr/lib/lib*.so
 %dir /usr/lib/tk8.0
 /usr/lib/tk8.0/*.tcl
-/usr/man/man1/*
+%{_mandir}/man1/*
 
 %files devel
 %defattr(644,root,root,755)
 /usr/include/*
 /usr/lib/tkConfig.sh
-/usr/man/man3/*
-/usr/man/mann/*
+%{_mandir}/man3/*
+%{_mandir}/mann/*
 
 %files demo
 %defattr(-,root,root,755)
