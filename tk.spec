@@ -3,7 +3,7 @@ Summary(de):	Tk GUI-Toolkit für Tcl mit gemeinsam genutzten Libraries
 Summary(fr):	Boite à outil d'interfaçage graphique Tk pour Tcl avec librairies partagées
 Summary(pl):	Tk GUI narzêdzia dla Tcl wraz z bibliotekami dynamicznymi
 Summary(ru):	Tk GUI toolkit ÄÌÑ Tcl
-Summary(tr):	Tk, TCL için grafik kullanýcý arabirimi araç takýmýdýr
+Summary(tr):	Tk, Tcl için grafik kullanýcý arabirimi araç takýmýdýr
 Summary(uk):	Tk GUI toolkit ÄÌÑ Tcl
 Name:		tk
 %define major	8.4
