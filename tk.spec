@@ -81,7 +81,7 @@ autoconf
 
 %build
 cd unix
-TCL_BIN_DIR=/usr/lib \
+TCL_BIN_DIR=%{_libdir} \
 CFLAGS="$RPM_OPT_FLAGS -D_REENTRANT" LDFLAGS="-s" \
 ./configure %{_target} \
 	--prefix=/usr \
@@ -95,7 +95,7 @@ install -d $RPM_BUILD_ROOT/usr
 
 cd unix
 make INSTALL_ROOT=$RPM_BUILD_ROOT install
-ln -sf libtk8.0.so $RPM_BUILD_ROOT/usr/lib/libtk.so
+ln -sf libtk8.0.so $RPM_BUILD_ROOT%{_libdir}/libtk.so
 ln -sf wish8.0 $RPM_BUILD_ROOT/usr/bin/wish
 
 %post   -p /sbin/ldconfig
@@ -107,21 +107,21 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) /usr/bin/*
-%attr(755,root,root) /usr/lib/lib*.so
-%dir /usr/lib/tk8.0
-/usr/lib/tk8.0/*.tcl
+%attr(755,root,root) %{_libdir}/lib*.so
+%dir %{_libdir}/tk8.0
+%{_libdir}/tk8.0/*.tcl
 %{_mandir}/man1/*
 
 %files devel
 %defattr(644,root,root,755)
 /usr/include/*
-/usr/lib/tkConfig.sh
+%{_libdir}/tkConfig.sh
 %{_mandir}/man3/*
 %{_mandir}/mann/*
 
 %files demo
 %defattr(-,root,root,755)
-/usr/lib/tk8.0/demos
+%{_libdir}/tk8.0/demos
 
 %changelog
 * Tue Mar 23 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
@@ -134,7 +134,7 @@ rm -rf $RPM_BUILD_ROOT
 - changed passing $RPM_OPT_FLAGS and added LDFLAGS,
 - added demo subpackages,
 - added "Requires: %%{name} = %%{version}" for devel,
-- added missing files from /usr/lib/tk8.0 directory to main package,
+- added missing files from %{_libdir}/tk8.0 directory to main package,
 - fixed pl translation.
 
 * Mon Oct 05 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
