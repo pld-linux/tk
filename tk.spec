@@ -1,5 +1,5 @@
 # TODO:
-# - add to %%files %%lang(*) /usr/lib/tk8.4/msgs/*.msg
+# - s/minor/major/ (I think it was the idea)???
 %define minor 8.4
 Summary:	Tk GUI toolkit for Tcl, with shared libraries
 Summary(de):	Tk GUI-Toolkit für Tcl mit gemeinsam genutzten Libraries
@@ -163,6 +163,18 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/tk%{minor}
 %{_libdir}/tk%{minor}/*.tcl
 %{_libdir}/tk%{minor}/tclIndex
+%{_libdir}/tk%{minor}/tkAppInit.c
+%dir %{_libdir}/tk%{minor}/msgs
+%lang(cs) %{_libdir}/tk%{minor}/msgs/cs.msg
+%lang(de) %{_libdir}/tk%{minor}/msgs/de.msg
+%lang(el) %{_libdir}/tk%{minor}/msgs/el.msg
+%{_libdir}/tk%{minor}/msgs/en.msg
+%lang(en_GB) %{_libdir}/tk%{minor}/msgs/en_gb.msg
+%lang(es) %{_libdir}/tk%{minor}/msgs/es.msg
+%lang(fr) %{_libdir}/tk%{minor}/msgs/fr.msg
+%lang(it) %{_libdir}/tk%{minor}/msgs/it.msg
+%lang(nl) %{_libdir}/tk%{minor}/msgs/nl.msg
+%lang(ru) %{_libdir}/tk%{minor}/msgs/ru.msg
 %{_mandir}/man1/*
 
 %files devel
