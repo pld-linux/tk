@@ -4,14 +4,14 @@ Summary(fr):	Boite à outil d'interfaçage graphique Tk pour Tcl avec librairies p
 Summary(pl):	Tk GUI narzêdzia dla Tcl wraz z bibliotekami dynamicznymi
 Summary(tr):	Tk, TCL için grafik kullanýcý arabirimi araç takýmýdýr
 Group:		Development/Languages/Tcl
+Group(pl):	Programowanie/Jêzyki/Tcl
 Name:		tk
 Version:	8.0.5
 Release:	1
 Source0:	ftp://ftp.scriptics.com/pub/tcl/tcl8_0/%{name}%{version}.tar.gz
 Patch0:		tk-ieee.patch
 Patch1:		tk-nochecktcl.patch
-Group:		Development/Languages/Tcl
-Group(pl):	Programowanie/Jêzyki/Tcl
+BuildPrereq:	tcl
 Copyright:	BSD
 Icon:		tk.gif
 Buildroot:	/tmp/%{name}-%{version}-root
