@@ -1,3 +1,5 @@
+# TODO:
+# - add to %%files %%lang(*) /usr/lib/tk8.4/msgs/*.msg
 %define minor 8.4
 Summary:	Tk GUI toolkit for Tcl, with shared libraries
 Summary(de):	Tk GUI-Toolkit für Tcl mit gemeinsam genutzten Libraries
