@@ -7,7 +7,7 @@ Summary(tr):	Tk, TCL için grafik kullanýcý arabirimi araç takýmýdýr
 Summary(uk):	Tk GUI toolkit ÄÌÑ Tcl
 Name:		tk
 Version:	8.3.4
-Release:	6
+Release:	5
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	ftp://ftp.scriptics.com/pub/tcl/tcl8_3/%{name}%{version}.tar.gz
@@ -17,7 +17,6 @@ Patch2:		%{name}-pil.patch
 Patch3:		%{name}-headers_fix.patch
 Patch4:		%{name}-opt_flags_pass_fix.patch
 Patch5:		%{name}-ac253.patch
-Patch6:		%{name}-soname_fix.patch
 Icon:		tk.gif
 BuildRequires:	autoconf
 BuildRequires:	tcl-devel >= %{version}
@@ -111,7 +110,6 @@ Narzêdzia Tk GUI - programy demonstracyjne.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
-%patch6 -p1
 
 %build
 cd unix
