@@ -1,14 +1,15 @@
 Summary:     Tk GUI toolkit for Tcl, with shared libraries
 Summary(de): Tk GUI-Toolkit für Tcl mit gemeinsam genutzten Libraries
 Summary(fr): Boite à outil d'interfaçage graphique Tk pour Tcl avec librairies partagées.
+Summary(pl): Tk GUI narzêdzia dla Tcl wraz z bibliotekami dynamicznymi
 Summary(tr): Tk, TCL için grafik kullanýcý arabirimi araç takýmýdýr
 Group:       Development/Languages/Tcl
 Name:        tk
-Version:     8.0p2
+Version:     8.0.3
 Release:     1
 Source0:     ftp://ftp.scriptics.com/pub/tcl/tcl8_0/%{name}%{version}.tar.gz
 Patch0:      tk-8.0-ieee.patch
-Patch1:      tk8.0-nochecktcl.patch
+Patch1:      tk-nochecktcl.patch
 Group:       Development/Languages/Tcl
 Copyright:   BSD
 Icon:        tk.gif
@@ -34,6 +35,11 @@ fonctionnalités entiérement interfacées en à peine plus de temps qu'avec
 interface texte. Les applications Tcl/Tk peuvent aussi fonctionner sur des
 plateformes Windows ou Macintosh.
 
+%description -l pl
+Tk jest zbiorem kontrolek X Window, przeznaczonym do pracy z jêzykiem
+skryptowym tcl. Pakiet ten pozwoli Ci na pisanie prostych programów
+z GUI.
+
 %description -l tr
 Tk, tcl betimleme dili ile birlikte kullanýlmak üzere tasarlanmýþ bir X
 Windows arayüz elemaný kümesidir. Tcl/Tk uygulamalarý MS-Windows ve
@@ -41,29 +47,43 @@ Macintosh ortamlarýnda da çalýþtýrýlabilir.
 
 %package devel
 Summary:     Tk GUI toolkit for Tcl header files and development documentation
+Summary(pl): Narzêdzia Tk GUI - pliki nag³ówkowe i dokumentacja
 Group:       Development/Languages/Tcl
+Requires:    %{name} = %{version}
 
 %description devel
 Tk GUI toolkit for Tcl header files and develppment documentation.
 
+%description -l pl devel
+Narzêdzia tk GUI - pliki nag³ówkowe i dokumentacja.
+
+%package demo
+Summary:     Tk GUI toolkit for Tcl - demo programs
+Summary(pl): Narzêdzia Tk GUI - programy demostracjne
+Group:       Development/Languages/Tcl
+Requires:    %{name} = %{version}
+
+%description demo
+Tk GUI toolkit for Tcl - demo programs.
+
+%description demo -l pl
+Narzêdzia Tk GUI - programy demostracjne.
+
 %prep
-%setup -q -n %{name}8.0
+%setup -q -n %{name}%{version}
 %patch0 -p1
 %patch1 -p1 -b .nochecktcl
 cd unix
 autoconf
 
 %build
-
-# make the libraries reentrant
-RPM_OPT_FLAGS="$RPM_OPT_FLAGS -D_REENTRANT"
-
 cd unix
 TCL_BIN_DIR=/usr/lib \
-./configure	--prefix=/usr \
-		--enable-shared \
-		--enable-gcc
-make CFLAGS="$RPM_OPT_FLAGS -D_REENTRANT"
+CFLAGS="$RPM_OPT_FLAGS -D_REENTRANT" LDFLAGS="-s" ./configure \
+	--prefix=/usr \
+	--enable-shared \
+	--enable-gcc
+make
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -81,9 +101,12 @@ ln -sf wish8.0 $RPM_BUILD_ROOT/usr/bin/wish
 rm -rf $RPM_BUILD_ROOT
 
 %files
+%defattr(644, root, root, 755)
 %attr(755, root, root) /usr/bin/*
-%attr(644, root, root) /usr/man/man1/*
 %attr(755, root, root) /usr/lib/lib*.so
+%dir /usr/lib/tk8.0
+/usr/lib/tk8.0/*.tcl
+%attr(644, root, root) /usr/man/man1/*
 
 %files devel
 %defattr(644, root, root, 755)
@@ -92,7 +115,24 @@ rm -rf $RPM_BUILD_ROOT
 %attr(644, root, root) /usr/man/man3/*
 %attr(644, root, root) /usr/man/mann/*
 
+%files demo
+%defattr(-, root, root, 755)
+/usr/lib/tk8.0/demos
+
 %changelog
+* Thu Oct 13 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [8.0.3-1]
+- changed passing $RPM_OPT_FLAGS and added LDFLAGS,
+- added demo subpackages,
+- added "Requires: %%{name} = %%{version}" for devel,
+- added missing files from /usr/lib/tk8.0 directory to main package,
+- fixed pl translation.
+
+* Mon Oct 05 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
+- added pl translation,
+- fixed man pages group,
+- minor modifications of the spec file.
+
 * Mon Aug 24 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [8.0p2-1]
 - tk is now separated source package from orher tcl/tk stuff,
