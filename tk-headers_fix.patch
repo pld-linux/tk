@@ -10,8 +10,8 @@
 + 		$(GENERIC_DIR)/tkIntDecls.h $(GENERIC_DIR)/tkCanvas.h \
 + 		$(UNIX_DIR)/tkUnixPort.h $(GENERIC_DIR)/tkPort.h \
 + 		$(GENERIC_DIR)/default.h $(UNIX_DIR)/tkUnixDefault.h \
-+ 		$(UNIX_DIR)/tkUnixInt.h $(COMPAT_DIR)/limits.h \
-+ 		$(COMPAT_DIR)/unistd.h $(COMPAT_DIR)/stdlib.h ; \
++ 		$(UNIX_DIR)/tkUnixInt.h \
++ 		; \
  	    do \
  	    $(INSTALL_DATA) $$i $(INCLUDE_INSTALL_DIR); \
  	    done;
