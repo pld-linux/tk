@@ -6,13 +6,15 @@ Summary(tr):	Tk, TCL için grafik kullanýcý arabirimi araç takýmýdýr
 Group:		Development/Languages/Tcl
 Name:		tk
 Version:	8.0.5
-Release:	1
+Release:	2
+Copyright:	BSD
+Group:		Development/Languages/Tcl
+Group(pl):	Programowanie/Jêzyki/Tcl
 Source0:	ftp://ftp.scriptics.com/pub/tcl/tcl8_0/%{name}%{version}.tar.gz
 Patch0:		tk-ieee.patch
 Patch1:		tk-nochecktcl.patch
-Group:		Development/Languages/Tcl
-Group(pl):	Programowanie/Jêzyki/Tcl
-Copyright:	BSD
+Patch2:		tk-manlnk.patch
+Patch3:		tk-elide.patch
 Icon:		tk.gif
 Buildroot:	/tmp/%{name}-%{version}-root
 
@@ -75,28 +77,35 @@ Narzêdzia Tk GUI - programy demostracjne.
 %prep
 %setup -q -n %{name}%{version}
 %patch0 -p1
-%patch1 -p1 -b .nochecktcl
-cd unix
-autoconf
+%patch1 -p1
+%patch2 -p1
+%patch3 -p1
+%patch4 -p1
 
 %build
 cd unix
+autoconf
 TCL_BIN_DIR=%{_libdir} \
 CFLAGS="$RPM_OPT_FLAGS -D_REENTRANT" LDFLAGS="-s" \
 ./configure %{_target_platform} \
-	--prefix=/usr \
+	--prefix=%{_prefix} \
 	--enable-shared \
 	--enable-gcc
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/usr
+install -d $RPM_BUILD_ROOT%{_mandir}
 
 cd unix
-make INSTALL_ROOT=$RPM_BUILD_ROOT install
+make install \
+	INSTALL_ROOT=$RPM_BUILD_ROOT \
+	MAN_INSTALL_DIR=$RPM_BUILD_ROOT%{_mandir}
+
 ln -sf libtk8.0.so $RPM_BUILD_ROOT%{_libdir}/libtk.so
 ln -sf wish8.0 $RPM_BUILD_ROOT%{_bindir}/wish
+
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man?/*
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
@@ -124,69 +133,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/tk8.0/demos
 
 %changelog
-* Tue Mar 23 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [8.0.5-1]
-- added Group(pl),
-- removed man group from man pages.
-
-* Thu Oct 13 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [8.0.3-1]
-- changed passing $RPM_OPT_FLAGS and added LDFLAGS,
-- added demo subpackages,
-- added "Requires: %%{name} = %%{version}" for devel,
-- added missing files from %{_libdir}/tk8.0 directory to main package,
-- fixed pl translation.
-
-* Mon Oct 05 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
-- added pl translation,
-- fixed man pages group,
-- minor modifications of the spec file.
-
-* Mon Aug 24 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [8.0p2-1]
-- tk is now separated source package from orher tcl/tk stuff,
-- changed Buildroot to /tmp/%%{name}-%%{version}-root,
-- added using %%{name} and %%{version} in Source,
-- fixed using $RPM_OPT_FLAGS during compile (curren tcl configure script don't
-  accept passing CFLAGS in enviroment variable),
-- added stripping shared libraries and wish binary,
-- added devel subpackage,
-- added URL,
-- added package icon,
-- updated Source Url to based on ftp://ftp.scriptics.com/,
-- added %attr and %defattr macros in %files (allows build package from
-  non-root account).
-
-* Thu May 07 1998 Prospector System <bugs@redhat.com>
-- translations modified for de, fr, tr
-
-* Sat May 02 1998 Cristian Gafton <gafton@redhat.com>
-- fixed expect binaries exec permissions
-
-* Thu Apr 09 1998 Erik Troan <ewt@redhat.com>
-- updated to Tix 4.1.0.006
-- updated version numbers of tcl/tk to relflect includsion of p2
-
-* Wed Mar 25 1998 Cristian Gafton <gafton@redhat.com>
-- updated tcl/tk to patch level 2
-- updated tclX to 8.0.2
-
-* Thu Oct 30 1997 Otto Hammersmith <otto@redhat.com>
-- fixed filelist for tix... replacing path to the expect binary in scripts
-  was leaving junk files around.
-
-* Wed Oct 22 1997 Otto Hammersmith <otto@redhat.com>
-- added patch to remove libieee test in configure.in for tcl and tk.
-  Shoudln't be needed anymore for glibc systems, but this isn't the "proper" 
-  solution for all systems
-- fixed src urls
-
-* Mon Oct 06 1997 Erik Troan <ewt@redhat.com>
-- removed version numbers from descriptions
-
-* Mon Sep 22 1997 Erik Troan <ewt@redhat.com>
-- updated to tcl/tk 8.0 and related versions of packages
-
-* Tue Jun 17 1997 Erik Troan <ewt@redhat.com>
-- built against glibc
-- fixed dangling tclx/tkx symlinks
+* Sun Jun  6 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [8.0.5-2]
+- based on RH spec,
+- spec rewrited by PLD team.
