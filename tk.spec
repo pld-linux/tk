@@ -62,7 +62,7 @@ Requires:	XFree86-devel
 %description devel
 Tk GUI toolkit for Tcl header files and develppment documentation.
 
-%description -l pl devel
+%description devel -l pl
 Narzêdzia tk GUI - pliki nag³ówkowe i dokumentacja.
 
 %package demo
