@@ -8,8 +8,6 @@ Version:	8.3.4
 Release:	2
 License:	BSD
 Group:		Development/Languages/Tcl
-Group(de):	Entwicklung/Sprachen/Tcl
-Group(pl):	Programowanie/Jêzyki/Tcl
 Source0:	ftp://ftp.scriptics.com/pub/tcl/tcl8_3/%{name}%{version}.tar.gz
 Patch0:		%{name}-ieee.patch
 Patch1:		%{name}-manlnk.patch
@@ -57,8 +55,6 @@ Macintosh ortamlarýnda da çalýþtýrýlabilir.
 Summary:	Tk GUI toolkit for Tcl header files and development documentation
 Summary(pl):	Narzêdzia Tk GUI - pliki nag³ówkowe i dokumentacja
 Group:		Development/Languages/Tcl
-Group(de):	Entwicklung/Sprachen/Tcl
-Group(pl):	Programowanie/Jêzyki/Tcl
 Requires:	%{name} = %{version}
 Requires:	tcl-devel
 Requires:	XFree86-devel
@@ -73,8 +69,6 @@ Narzêdzia tk GUI - pliki nag³ówkowe i dokumentacja.
 Summary:	Tk GUI toolkit for Tcl - demo programs
 Summary(pl):	Narzêdzia Tk GUI - programy demostracjne
 Group:		Development/Languages/Tcl
-Group(de):	Entwicklung/Sprachen/Tcl
-Group(pl):	Programowanie/Jêzyki/Tcl
 Requires:	%{name} = %{version}
 
 %description demo
