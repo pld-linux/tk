@@ -1,6 +1,4 @@
-# TODO:
-# - s/minor/major/ (I think it was the idea)???
-%define minor 8.4
+%define major 8.4
 Summary:	Tk GUI toolkit for Tcl, with shared libraries
 Summary(de):	Tk GUI-Toolkit für Tcl mit gemeinsam genutzten Libraries
 Summary(fr):	Boite à outil d'interfaçage graphique Tk pour Tcl avec librairies partagées
@@ -9,8 +7,8 @@ Summary(ru):	Tk GUI toolkit ÄÌÑ Tcl
 Summary(tr):	Tk, TCL için grafik kullanýcý arabirimi araç takýmýdýr
 Summary(uk):	Tk GUI toolkit ÄÌÑ Tcl
 Name:		tk
-Version:	%{minor}.3
-Release:	0.1
+Version:	%{major}.3
+Release:	0.2
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	http://dl.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
@@ -22,6 +20,7 @@ Patch3:		%{name}-headers_fix.patch
 Patch4:		%{name}-opt_flags_pass_fix.patch
 Patch5:		%{name}-ac253.patch
 Patch6:		%{name}-soname_fix.patch
+Patch7:		%{name}-norpath.patch
 Icon:		tk.gif
 URL:		http://www.tcl.tk/
 BuildRequires:	autoconf
@@ -117,6 +116,7 @@ Narzêdzia Tk GUI - programy demonstracyjne.
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
+%patch7 -p1
 
 %build
 cd unix
@@ -144,9 +144,9 @@ cd unix
 	INSTALL_ROOT=$RPM_BUILD_ROOT \
 	MAN_INSTALL_DIR=$RPM_BUILD_ROOT%{_mandir}
 
-ln -sf libtk%{minor}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk.so
-ln -sf libtk%{minor}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk%{minor}.so
-mv -f $RPM_BUILD_ROOT%{_bindir}/wish%{minor} $RPM_BUILD_ROOT%{_bindir}/wish
+ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk.so
+ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk%{major}.so
+mv -f $RPM_BUILD_ROOT%{_bindir}/wish%{major} $RPM_BUILD_ROOT%{_bindir}/wish
 
 install ../generic/tkInt.h $RPM_BUILD_ROOT%{_includedir}
 
@@ -160,21 +160,21 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%dir %{_libdir}/tk%{minor}
-%{_libdir}/tk%{minor}/*.tcl
-%{_libdir}/tk%{minor}/tclIndex
-%{_libdir}/tk%{minor}/tkAppInit.c
-%dir %{_libdir}/tk%{minor}/msgs
-%lang(cs) %{_libdir}/tk%{minor}/msgs/cs.msg
-%lang(de) %{_libdir}/tk%{minor}/msgs/de.msg
-%lang(el) %{_libdir}/tk%{minor}/msgs/el.msg
-%{_libdir}/tk%{minor}/msgs/en.msg
-%lang(en_GB) %{_libdir}/tk%{minor}/msgs/en_gb.msg
-%lang(es) %{_libdir}/tk%{minor}/msgs/es.msg
-%lang(fr) %{_libdir}/tk%{minor}/msgs/fr.msg
-%lang(it) %{_libdir}/tk%{minor}/msgs/it.msg
-%lang(nl) %{_libdir}/tk%{minor}/msgs/nl.msg
-%lang(ru) %{_libdir}/tk%{minor}/msgs/ru.msg
+%dir %{_libdir}/tk%{major}
+%{_libdir}/tk%{major}/*.tcl
+%{_libdir}/tk%{major}/tclIndex
+%{_libdir}/tk%{major}/tkAppInit.c
+%dir %{_libdir}/tk%{major}/msgs
+%lang(cs) %{_libdir}/tk%{major}/msgs/cs.msg
+%lang(de) %{_libdir}/tk%{major}/msgs/de.msg
+%lang(el) %{_libdir}/tk%{major}/msgs/el.msg
+%{_libdir}/tk%{major}/msgs/en.msg
+%lang(en_GB) %{_libdir}/tk%{major}/msgs/en_gb.msg
+%lang(es) %{_libdir}/tk%{major}/msgs/es.msg
+%lang(fr) %{_libdir}/tk%{major}/msgs/fr.msg
+%lang(it) %{_libdir}/tk%{major}/msgs/it.msg
+%lang(nl) %{_libdir}/tk%{major}/msgs/nl.msg
+%lang(ru) %{_libdir}/tk%{major}/msgs/ru.msg
 %{_mandir}/man1/*
 
 %files devel
@@ -182,10 +182,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/*
 %attr(755,root,root) %{_libdir}/tkConfig.sh
 %attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/libtkstub%{minor}.a
+%{_libdir}/libtkstub%{major}.a
 %{_mandir}/man3/*
 %{_mandir}/mann/*
 
 %files demo
 %defattr(644,root,root,755)
-%{_libdir}/tk%{minor}/demos
+%{_libdir}/tk%{major}/demos
