@@ -73,11 +73,6 @@ cd unix
 make INSTALL_ROOT=$RPM_BUILD_ROOT install
 ln -sf libtk8.0.so $RPM_BUILD_ROOT/usr/lib/libtk.so
 ln -sf wish8.0 $RPM_BUILD_ROOT/usr/bin/wish
-cd ../..
-(find $RPM_BUILD_ROOT/usr/bin $RPM_BUILD_ROOT/usr/include \
-	$RPM_BUILD_ROOT/usr/man -type f -o -type l;
- find $RPM_BUILD_ROOT/usr/lib/*) | cat - tcl.files \
-	| sort | uniq -u > tk.files
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
