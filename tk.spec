@@ -16,6 +16,7 @@ Patch1:		%{name}-manlnk.patch
 Patch2:		%{name}-pil.patch
 Patch3:		%{name}-headers_fix.patch
 Patch4:		%{name}-opt_flags_pass_fix.patch
+Patch5:		%{name}-ac253.patch
 Icon:		tk.gif
 BuildRequires:	autoconf
 BuildRequires:	tcl-devel >= %{version}
@@ -108,6 +109,7 @@ Narzêdzia Tk GUI - programy demostracjne.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 cd unix
