@@ -1,11 +1,11 @@
---- tk8.0/unix/configure.in.ieee	Wed Oct 22 13:44:22 1997
-+++ tk8.0/unix/configure.in	Wed Oct 22 13:44:29 1997
-@@ -285,13 +285,10 @@
+--- tk8.4.7/unix/configure.in.orig	2004-07-29 23:57:48.000000000 +0200
++++ tk8.4.7/unix/configure.in	2004-08-06 00:22:07.871744816 +0200
+@@ -129,13 +129,10 @@
  #--------------------------------------------------------------------
- #	On a few very rare systems, all of the libm.a stuff is
- #	already in libc.a.  Set compiler flags accordingly.
--#	Also, Linux requires the "ieee" library for math to
--#	work right (and it must appear before "-lm").
+ # On a few very rare systems, all of the libm.a stuff is
+ # already in libc.a.  Set compiler flags accordingly.
+-# Also, Linux requires the "ieee" library for math to work
+-# right (and it must appear before "-lm").
  #--------------------------------------------------------------------
  
  MATH_LIBS=""
@@ -13,4 +13,4 @@
 -AC_CHECK_LIB(ieee, main, [MATH_LIBS="-lieee $MATH_LIBS"])
  
  #--------------------------------------------------------------------
- #	If this system doesn't have a memmove procedure, use memcpy
+ # On AIX systems, libbsd.a has to be linked in to support
