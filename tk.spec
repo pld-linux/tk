@@ -25,6 +25,7 @@ Patch7:		%{name}-norpath.patch
 Patch8:		%{name}-aa-cairo.patch
 Patch9:		%{name}-unix-scrollbars.patch
 Patch10:	%{name}-unix-3d-borders.patch
+Patch11:	%{name}-lib64.patch
 Icon:		tk.gif
 URL:		http://www.tcl.tk/
 BuildRequires:	XFree86-devel
@@ -125,6 +126,7 @@ Narzêdzia Tk GUI - programy demonstracyjne.
 #%patch8 -p1
 %patch9 -p1
 %patch10 -p1
+%patch11
 
 %build
 cd unix
