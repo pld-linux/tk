@@ -1,3 +1,4 @@
+%define minor 8.3
 Summary:	Tk GUI toolkit for Tcl, with shared libraries
 Summary(de):	Tk GUI-Toolkit für Tcl mit gemeinsam genutzten Libraries
 Summary(fr):	Boite à outil d'interfaçage graphique Tk pour Tcl avec librairies partagées
@@ -6,12 +7,12 @@ Summary(ru):	Tk GUI toolkit ÄÌÑ Tcl
 Summary(tr):	Tk, TCL için grafik kullanýcý arabirimi araç takýmýdýr
 Summary(uk):	Tk GUI toolkit ÄÌÑ Tcl
 Name:		tk
-Version:	8.3.4
-Release:	6
+Version:	%{minor}.4
+Release:	7
 License:	BSD
 Group:		Development/Languages/Tcl
 #Source0-md5:	02311d8f90734c4f5eaa62e9b36fe535
-Source0:	ftp://ftp.scriptics.com/pub/tcl/tcl8_3/%{name}%{version}.tar.gz
+Source0:	ftp://ftp.scriptics.com/pub/tcl/tcl%(echo %{minor}|tr . _)/%{name}%{version}.tar.gz
 Patch0:		%{name}-ieee.patch
 Patch1:		%{name}-manlnk.patch
 Patch2:		%{name}-pil.patch
@@ -140,8 +141,9 @@ cd unix
 	INSTALL_ROOT=$RPM_BUILD_ROOT \
 	MAN_INSTALL_DIR=$RPM_BUILD_ROOT%{_mandir}
 
-ln -sf libtk8.3.so $RPM_BUILD_ROOT%{_libdir}/libtk.so
-mv -f $RPM_BUILD_ROOT%{_bindir}/wish8.3 $RPM_BUILD_ROOT%{_bindir}/wish
+ln -sf libtk%{minor}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk.so
+ln -sf libtk%{minor}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk%{minor}.so
+mv -f $RPM_BUILD_ROOT%{_bindir}/wish%{minor} $RPM_BUILD_ROOT%{_bindir}/wish
 
 install ../generic/tkInt.h $RPM_BUILD_ROOT%{_includedir}
 
@@ -154,20 +156,21 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/lib*.so
-%dir %{_libdir}/tk8.3
-%{_libdir}/tk8.3/*.tcl
-%{_libdir}/tk8.3/tclIndex
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%dir %{_libdir}/tk%{minor}
+%{_libdir}/tk%{minor}/*.tcl
+%{_libdir}/tk%{minor}/tclIndex
 %{_mandir}/man1/*
 
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/*
 %attr(755,root,root) %{_libdir}/tkConfig.sh
-%{_libdir}/libtkstub8.3.a
+%attr(755,root,root) %{_libdir}/lib*.so
+%{_libdir}/libtkstub%{minor}.a
 %{_mandir}/man3/*
 %{_mandir}/mann/*
 
 %files demo
 %defattr(644,root,root,755)
-%{_libdir}/tk8.3/demos
+%{_libdir}/tk%{minor}/demos
