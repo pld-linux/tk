@@ -1,4 +1,4 @@
-%define minor 8.3
+%define minor 8.4
 Summary:	Tk GUI toolkit for Tcl, with shared libraries
 Summary(de):	Tk GUI-Toolkit für Tcl mit gemeinsam genutzten Libraries
 Summary(fr):	Boite à outil d'interfaçage graphique Tk pour Tcl avec librairies partagées
@@ -7,12 +7,12 @@ Summary(ru):	Tk GUI toolkit ÄÌÑ Tcl
 Summary(tr):	Tk, TCL için grafik kullanýcý arabirimi araç takýmýdýr
 Summary(uk):	Tk GUI toolkit ÄÌÑ Tcl
 Name:		tk
-Version:	%{minor}.4
-Release:	8
+Version:	%{minor}.3
+Release:	0.1
 License:	BSD
 Group:		Development/Languages/Tcl
-#Source0-md5:	02311d8f90734c4f5eaa62e9b36fe535
-Source0:	ftp://ftp.scriptics.com/pub/tcl/tcl%(echo %{minor}|tr . _)/%{name}%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
+# Source0-md5:	e3ec11e314c9541b84e0415fbe9d947e
 Patch0:		%{name}-ieee.patch
 Patch1:		%{name}-manlnk.patch
 Patch2:		%{name}-pil.patch
@@ -21,10 +21,9 @@ Patch4:		%{name}-opt_flags_pass_fix.patch
 Patch5:		%{name}-ac253.patch
 Patch6:		%{name}-soname_fix.patch
 Icon:		tk.gif
+URL:		http://www.tcl.tk/
 BuildRequires:	autoconf
 BuildRequires:	tcl-devel >= %{version}
-# to be removed in new versions, but now must stay - wiget.
-BuildRequires:	tcl-devel >= 8.3.4-10
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
