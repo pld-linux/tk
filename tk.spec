@@ -8,7 +8,7 @@ Summary(tr):	Tk, TCL için grafik kullanýcý arabirimi araç takýmýdýr
 Summary(uk):	Tk GUI toolkit ÄÌÑ Tcl
 Name:		tk
 Version:	%{major}.3
-Release:	0.2
+Release:	0.3
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	http://dl.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
@@ -26,6 +26,7 @@ URL:		http://www.tcl.tk/
 BuildRequires:	autoconf
 BuildRequires:	tcl-devel >= %{version}
 BuildRequires:	XFree86-devel
+Requires:	tcl >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -86,7 +87,7 @@ Summary:	Tk GUI toolkit for Tcl header files and development documentation
 Summary(pl):	Narzêdzia Tk GUI - pliki nag³ówkowe i dokumentacja
 Group:		Development/Languages/Tcl
 Requires:	%{name} = %{version}
-Requires:	tcl-devel
+Requires:	tcl-devel >= %{version}
 Requires:	XFree86-devel
 
 %description devel
