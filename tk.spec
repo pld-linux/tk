@@ -8,7 +8,7 @@ Summary(tr):	Tk, TCL için grafik kullanýcý arabirimi araç takýmýdýr
 Summary(uk):	Tk GUI toolkit ÄÌÑ Tcl
 Name:		tk
 Version:	%{minor}.4
-Release:	7
+Release:	8
 License:	BSD
 Group:		Development/Languages/Tcl
 #Source0-md5:	02311d8f90734c4f5eaa62e9b36fe535
@@ -23,6 +23,8 @@ Patch6:		%{name}-soname_fix.patch
 Icon:		tk.gif
 BuildRequires:	autoconf
 BuildRequires:	tcl-devel >= %{version}
+# to be removed in new versions, but now must stay - wiget.
+BuildRequires:	tcl-devel >= 8.3.4-10
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
