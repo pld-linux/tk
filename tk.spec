@@ -6,7 +6,7 @@ Summary(tr):	Tk, TCL için grafik kullanýcý arabirimi araç takýmýdýr
 Group:		Development/Languages/Tcl
 Name:		tk
 Version:	8.0.5
-Release:	31
+Release:	37
 Copyright:	BSD
 Group:		Development/Languages/Tcl
 Group(pl):	Programowanie/Jêzyki/Tcl
