@@ -6,19 +6,18 @@ Summary(ru):	Tk GUI toolkit ÄÌÑ Tcl
 Summary(tr):	Tk, Tcl için grafik kullanýcý arabirimi araç takýmýdýr
 Summary(uk):	Tk GUI toolkit ÄÌÑ Tcl
 Name:		tk
-%define major	8.4
-Version:	%{major}.9
-Release:	1
+%define major	8.5
+Version:	%{major}
+%define	rel	a2
+Release:	0.%{rel}.1
 License:	BSD
 Group:		Development/Languages/Tcl
-Source0:	http://dl.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
-# Source0-md5:	1b64258abaf258e9a86f331d8de17a71
-Patch0:		%{name}-ieee.patch
+Source0:	http://dl.sourceforge.net/tcl/%{name}%{version}%{rel}-src.tar.gz
+# Source0-md5:	620f7816720d3ec1ef945f761499ac7a
 Patch1:		%{name}-manlnk.patch
 Patch2:		%{name}-pil.patch
 Patch3:		%{name}-headers_fix.patch
 Patch4:		%{name}-opt_flags_pass_fix.patch
-Patch5:		%{name}-ac253.patch
 Patch6:		%{name}-soname_fix.patch
 Patch7:		%{name}-norpath.patch
 # http://www.tclsource.org/?page=tk
@@ -116,13 +115,11 @@ Tk GUI toolkit for Tcl - demo programs.
 Narzêdzia Tk GUI - programy demonstracyjne.
 
 %prep
-%setup -q -n %{name}%{version}
-%patch0 -p1
+%setup -q -n %{name}%{version}%{rel}
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
-%patch5 -p1
 %patch6 -p1
 %patch7 -p1
 #%patch8 -p1
@@ -137,6 +134,7 @@ TCL_BIN_DIR=%{_libdir}
 %configure \
 	--disable-symbols \
 	--enable-shared \
+	--enable-xft \
 	--disable-threads \
 	--enable-64bit \
 	--enable-gcc
@@ -194,6 +192,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(nl) %{_ulibdir}/tk%{major}/msgs/nl.msg
 %lang(pl) %{_ulibdir}/tk%{major}/msgs/pl.msg
 %lang(ru) %{_ulibdir}/tk%{major}/msgs/ru.msg
+%lang(sv) %{_ulibdir}/tk%{major}/msgs/sv.msg
 %{_mandir}/man1/*
 
 %files devel
