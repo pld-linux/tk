@@ -15,6 +15,7 @@ Patch0:		tk-ieee.patch
 Patch1:		tk-nochecktcl.patch
 Patch2:		tk-manlnk.patch
 Patch3:		tk-elide.patch
+Patch4:		tk-pil.patch
 Icon:		tk.gif
 Buildroot:	/tmp/%{name}-%{version}-root
 
