@@ -21,7 +21,7 @@ Patch3:		%{name}-headers_fix.patch
 Patch4:		%{name}-opt_flags_pass_fix.patch
 Icon:		tk.gif
 BuildRequires:	autoconf
-BuildRequires:	tcl-devel >= 8.3.2
+BuildRequires:	tcl-devel >= %{version}
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
