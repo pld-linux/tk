@@ -1,16 +1,17 @@
---- tk8.3.4/unix/Makefile.in.wiget	2003-06-04 13:42:20.394277901 +0200
-+++ tk8.3.4/unix/Makefile.in	2003-06-04 13:43:09.458752242 +0200
-@@ -371,7 +371,7 @@
+--- tk8.3.4/unix/Makefile.in.wiget	2003-06-07 09:27:16.000000000 +0000
++++ tk8.3.4/unix/Makefile.in	2003-06-07 09:28:45.000000000 +0000
+@@ -371,7 +371,8 @@
  # a shared library or non-shared library for Tk.
  ${TK_LIB_FILE}: ${OBJS}
  	rm -f ${TK_LIB_FILE}
 -	@MAKE_LIB@
-+	@MAKE_LIB@ -Wl,-soname,libtk8.3.so.0
++	@MAKE_LIB@ -Wl,-soname,libtk${VERSION}.so.0
++	-ln -sf ${TK_LIB_FILE} libtk${VERSION}.so
  	$(RANLIB) ${TK_LIB_FILE}
  
  ${STUB_LIB_FILE}: ${STUB_LIB_OBJS}
---- tk8.3.4/unix/tcl.m4.wiget	2003-06-04 13:48:26.895209433 +0200
-+++ tk8.3.4/unix/tcl.m4	2003-06-04 14:29:44.243749782 +0200
+--- tk8.3.4/unix/tcl.m4.wiget	2003-06-07 09:27:17.000000000 +0000
++++ tk8.3.4/unix/tcl.m4	2003-06-07 09:27:17.000000000 +0000
 @@ -829,7 +829,7 @@
  	Linux*)
  	    SHLIB_CFLAGS="-fPIC"
