@@ -8,12 +8,12 @@ Summary(uk):	Tk GUI toolkit ÄÌÑ Tcl
 Name:		tk
 %define major	8.5
 Version:	%{major}
-%define	rel	a2
+%define	rel	a3
 Release:	0.%{rel}.1
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	http://dl.sourceforge.net/tcl/%{name}%{version}%{rel}-src.tar.gz
-# Source0-md5:	620f7816720d3ec1ef945f761499ac7a
+# Source0-md5:	99c19b0547f637667f1101754cee2e8a
 Patch1:		%{name}-manlnk.patch
 Patch2:		%{name}-pil.patch
 Patch3:		%{name}-headers_fix.patch
@@ -125,7 +125,7 @@ Narzêdzia Tk GUI - programy demonstracyjne.
 #%patch8 -p1
 %patch9 -p1
 %patch10 -p1
-%patch11
+%patch11 -p1
 
 %build
 cd unix
@@ -185,6 +185,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(el) %{_ulibdir}/tk%{major}/msgs/el.msg
 %{_ulibdir}/tk%{major}/msgs/en.msg
 %lang(en_GB) %{_ulibdir}/tk%{major}/msgs/en_gb.msg
+%lang(es) %{_ulibdir}/tk%{major}/msgs/es_*.msg
 %lang(eo) %{_ulibdir}/tk%{major}/msgs/eo.msg
 %lang(es) %{_ulibdir}/tk%{major}/msgs/es.msg
 %lang(fr) %{_ulibdir}/tk%{major}/msgs/fr.msg
