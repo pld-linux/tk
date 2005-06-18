@@ -14,6 +14,7 @@ License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	http://dl.sourceforge.net/tcl/%{name}%{version}%{rel}-src.tar.gz
 # Source0-md5:	99c19b0547f637667f1101754cee2e8a
+Patch0:		%{name}-ieee.patch
 Patch1:		%{name}-manlnk.patch
 Patch2:		%{name}-pil.patch
 Patch3:		%{name}-headers_fix.patch
@@ -116,6 +117,7 @@ Narzêdzia Tk GUI - programy demonstracyjne.
 
 %prep
 %setup -q -n %{name}%{version}%{rel}
+%patch0 -p1
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
