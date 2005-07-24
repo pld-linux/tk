@@ -1,28 +1,30 @@
---- tk8.4.3/unix/Makefile.in.wiget	2003-05-20 20:37:04.000000000 +0200
-+++ tk8.4.3/unix/Makefile.in	2003-06-11 09:15:18.000000000 +0200
-@@ -563,7 +563,13 @@
- 	    fi
- 	@echo "Installing header files";
- 	@for i in $(GENERIC_DIR)/tk.h $(GENERIC_DIR)/tkDecls.h \
--		$(GENERIC_DIR)/tkPlatDecls.h ; \
-+		$(GENERIC_DIR)/tkPlatDecls.h  \
-+ 		$(GENERIC_DIR)/tkIntXlibDecls.h \
-+ 		$(GENERIC_DIR)/tkIntDecls.h $(GENERIC_DIR)/tkCanvas.h \
-+ 		$(UNIX_DIR)/tkUnixPort.h $(GENERIC_DIR)/tkPort.h \
-+ 		$(GENERIC_DIR)/default.h $(UNIX_DIR)/tkUnixDefault.h \
-+ 		$(UNIX_DIR)/tkUnixInt.h $(COMPAT_DIR)/limits.h \
-+ 		$(COMPAT_DIR)/unistd.h $(COMPAT_DIR)/stdlib.h ; \
- 	    do \
- 	    $(INSTALL_DATA) $$i $(INCLUDE_INSTALL_DIR); \
- 	    done;
---- tk8.4.3/generic/tkPort.h.wiget	2002-08-31 08:12:26.000000000 +0200
-+++ tk8.4.3/generic/tkPort.h	2003-06-11 09:13:07.000000000 +0200
+diff -urbB tk8.4.11.org/generic/tkPort.h tk8.4.11/generic/tkPort.h
+--- tk8.4.11.org/generic/tkPort.h	2004-01-01 01:34:56.000000000 +0100
++++ tk8.4.11/generic/tkPort.h	2005-07-24 18:57:49.812194248 +0200
 @@ -31,7 +31,7 @@
  #   elif defined(MAC_OSX_TK)
- #	include "../macosx/tkMacOSXPort.h"
+ #	include "tkMacOSXPort.h"
  #   else
 -#	include "../unix/tkUnixPort.h"
 +#	include <tkUnixPort.h>
  #   endif
  #endif
  
+diff -urbB tk8.4.11.org/unix/Makefile.in tk8.4.11/unix/Makefile.in
+--- tk8.4.11.org/unix/Makefile.in	2005-06-29 18:43:10.000000000 +0200
++++ tk8.4.11/unix/Makefile.in	2005-07-24 18:59:07.402398744 +0200
+@@ -666,7 +666,13 @@
+ 	    fi
+ 	@echo "Installing header files";
+ 	@for i in $(GENERIC_DIR)/tk.h $(GENERIC_DIR)/tkDecls.h \
+-		$(GENERIC_DIR)/tkPlatDecls.h $(@TK_WINDOWINGSYSTEM@_HDRS) ; \
++		$(GENERIC_DIR)/tkPlatDecls.h $(@TK_WINDOWINGSYSTEM@_HDRS) \
++		$(GENERIC_DIR)/tkIntXlibDecls.h \
++		$(GENERIC_DIR)/tkIntDecls.h $(GENERIC_DIR)/tkCanvas.h \
++		$(UNIX_DIR)/tkUnixPort.h $(GENERIC_DIR)/tkPort.h \
++		$(GENERIC_DIR)/default.h $(UNIX_DIR)/tkUnixDefault.h \
++		$(UNIX_DIR)/tkUnixInt.h $(COMPAT_DIR)/limits.h \
++		$(COMPAT_DIR)/unistd.h $(COMPAT_DIR)/stdlib.h ; \
+ 	    do \
+ 	    $(INSTALL_DATA) $$i $(INCLUDE_INSTALL_DIR); \
+ 	    done;

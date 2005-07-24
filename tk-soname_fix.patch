@@ -1,23 +1,26 @@
---- tk8.4.6/unix/configure.in.orig	2004-03-06 22:34:25.000000000 +0100
-+++ tk8.4.6/unix/configure.in	2004-03-06 22:39:05.193655656 +0100
-@@ -363,7 +363,11 @@
-     TCL_STUB_FLAGS=""
- fi
- TK_LIB_FILE=libtk${LIB_SUFFIX}
+diff -urbB tk8.4.11.org/unix/configure.in tk8.4.11/unix/configure.in
+--- tk8.4.11.org/unix/configure.in	2005-06-29 18:43:10.000000000 +0200
++++ tk8.4.11/unix/configure.in	2005-07-24 19:16:41.305181168 +0200
+@@ -386,7 +386,12 @@
+ 
+ # Trick to replace DBGX with TK_DBGX
+ DBGX='${TK_DBGX}'
 -eval "TK_LIB_FILE=${TK_LIB_FILE}"
 +TK_SOMAJOR=".0"
 +TK_SOVERSION="${TK_SOMAJOR}.0"
 +eval "TK_LIB_SONAME=${TK_LIB_FILE}${TK_SOMAJOR}"
 +eval "TK_LIB_FILE=${TK_LIB_FILE}${TK_SOVERSION}"
 +AC_SUBST(TK_LIB_SONAME)
++
  
- # Note:  in the following variable, it's important to use the absolute
- # path name of the Tcl directory rather than "..":  this is because
---- tk8.4.6/unix/Makefile.in.orig	2004-03-06 22:34:25.000000000 +0100
-+++ tk8.4.6/unix/Makefile.in	2004-03-06 22:37:05.308880912 +0100
-@@ -404,7 +404,8 @@
+ if test "${SHARED_BUILD}" = "1" -a "${SHLIB_SUFFIX}" != ""; then
+     SHLIB_LD_LIBS="${SHLIB_LD_LIBS} \${TCL_STUB_LIB_SPEC}"
+diff -urbB tk8.4.11.org/unix/Makefile.in tk8.4.11/unix/Makefile.in
+--- tk8.4.11.org/unix/Makefile.in	2005-06-29 18:43:10.000000000 +0200
++++ tk8.4.11/unix/Makefile.in	2005-07-24 19:16:24.424747384 +0200
+@@ -485,7 +485,8 @@
  # a shared library or non-shared library for Tk.
- ${LIB_FILE}: ${OBJS}
+ ${LIB_FILE}: ${OBJS} ${STUB_LIB_FILE} @LIB_RSRC_FILE@
  	rm -f $@
 -	@MAKE_LIB@
 +	@MAKE_LIB@ -Wl,-soname,@TK_LIB_SONAME@
