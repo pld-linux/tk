@@ -17,7 +17,6 @@ Source0:	http://dl.sourceforge.net/tcl/%{name}%{version}%{rel}-src.tar.gz
 Patch0:		%{name}-ieee.patch
 Patch1:		%{name}-manlnk.patch
 Patch2:		%{name}-pil.patch
-Patch3:		%{name}-headers_fix.patch
 Patch4:		%{name}-opt_flags_pass_fix.patch
 Patch6:		%{name}-soname_fix.patch
 Patch7:		%{name}-norpath.patch
@@ -120,7 +119,6 @@ Narzêdzia Tk GUI - programy demonstracyjne.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 %patch4 -p1
 %patch6 -p1
 %patch7 -p1
@@ -143,9 +141,8 @@ TCL_BIN_DIR=%{_libdir}
 
 %{__make}
 
-sed -e "s#%{_builddir}/%{name}%{version}/unix#%{_libdir}#; \
-	s#%{_builddir}/%{name}%{version}#%{_includedir}#" tkConfig.sh > tkConfig.sh.new
-mv -f tkConfig.sh.new tkConfig.sh
+sed -i -e "s#%{_builddir}/%{name}%{version}/unix#%{_libdir}#; \
+	s#%{_builddir}/%{name}%{version}#%{_includedir}/%{name}-private#" tkConfig.sh
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -154,6 +151,15 @@ install -d $RPM_BUILD_ROOT{%{_mandir},%{_ulibdir}}
 %{__make} -C unix install \
 	INSTALL_ROOT=$RPM_BUILD_ROOT \
 	MAN_INSTALL_DIR=$RPM_BUILD_ROOT%{_mandir}
+
+install -d $RPM_BUILD_ROOT%{_includedir}/%{name}-private/{generic,unix}
+find generic unix -name "*.h" -exec cp -p '{}' $RPM_BUILD_ROOT%{_includedir}/%{name}-private/'{}' ';'
+for h in $RPM_BUILD_ROOT%{_includedir}/*.h; do
+        rh=$(basename "$h")
+        if [ -f "$RPM_BUILD_ROOT%{_includedir}/%{name}-private/generic/$rh" ]; then
+                ln -sf "../../$rh" $RPM_BUILD_ROOT%{_includedir}/%{name}-private/generic
+        fi
+done
 
 ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk.so
 ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk%{major}.so
