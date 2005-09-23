@@ -131,6 +131,7 @@ Narzêdzia Tk GUI - programy demonstracyjne.
 cd unix
 %{__autoconf}
 TCL_BIN_DIR=%{_libdir}
+CFLAGS="$CFLAGS -I%{_includedir}/tcl-private/generic -I%{_includedir}/tcl-private/unix"
 %configure \
 	--disable-symbols \
 	--enable-shared \
