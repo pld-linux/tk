@@ -131,19 +131,18 @@ Narzêdzia Tk GUI - programy demonstracyjne.
 cd unix
 %{__autoconf}
 TCL_BIN_DIR=%{_libdir}
-CFLAGS="$CFLAGS -I%{_includedir}/tcl-private/generic -I%{_includedir}/tcl-private/unix"
 %configure \
 	--disable-symbols \
-	--enable-shared \
-	--enable-xft \
 	--disable-threads \
 	--enable-64bit \
-	--enable-gcc
+	--enable-gcc \
+	--enable-shared \
+	--enable-xft
 
 %{__make}
 
-sed -i -e "s#%{_builddir}/%{name}%{version}/unix#%{_libdir}#; \
-	s#%{_builddir}/%{name}%{version}#%{_includedir}/%{name}-private#" tkConfig.sh
+sed -i -e "s#%{_builddir}/%{name}%{version}%{rel}/unix#%{_libdir}#; \
+	s#%{_builddir}/%{name}%{version}%{rel}#%{_includedir}/%{name}-private#" tkConfig.sh
 
 %install
 rm -rf $RPM_BUILD_ROOT
