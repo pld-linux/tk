@@ -35,6 +35,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_ulibdir	/usr/lib
 
+%define		specflags	-fno-strict-aliasing
+
 %description
 Tk is a X Window widget set designed to work closely with the Tcl
 scripting language. It allows you to write simple programs with full
