@@ -26,7 +26,6 @@ Patch9:		%{name}-unix-scrollbars.patch
 Patch10:	%{name}-unix-3d-borders.patch
 Patch11:	%{name}-lib64.patch
 Patch12:	tcl-shell-quotes.patch
-Icon:		tk.gif
 URL:		http://www.tcl.tk/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
