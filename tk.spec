@@ -9,7 +9,7 @@ Name:		tk
 %define major	8.5
 Version:	%{major}
 %define	rel	a3
-Release:	0.%{rel}.1
+Release:	0.%{rel}.2
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	http://dl.sourceforge.net/tcl/%{name}%{version}%{rel}-src.tar.gz
@@ -27,7 +27,7 @@ Patch10:	%{name}-unix-3d-borders.patch
 Patch11:	%{name}-lib64.patch
 Patch12:	tcl-shell-quotes.patch
 URL:		http://www.tcl.tk/
-BuildRequires:	XFree86-devel
+BuildRequires:	xorg-lib-libXft-devel
 BuildRequires:	autoconf
 BuildRequires:	tcl-devel >= %{version}
 Requires:	tcl >= %{version}
@@ -95,7 +95,7 @@ Summary:	Tk GUI toolkit for Tcl header files and development documentation
 Summary(pl):	Narzêdzia Tk GUI - pliki nag³ówkowe i dokumentacja
 Group:		Development/Languages/Tcl
 Requires:	%{name} = %{version}-%{release}
-Requires:	XFree86-devel
+Requires:	xorg-lib-libXft-devel
 Requires:	tcl-devel >= %{version}
 
 %description devel
