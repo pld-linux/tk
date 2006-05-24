@@ -25,14 +25,13 @@ Patch6:		%{name}-aa-cairo.patch
 Patch7:		%{name}-unix-scrollbars.patch
 Patch8:		%{name}-unix-3d-borders.patch
 Patch9:		%{name}-lib64.patch
+Patch10:	%{name}-x.patch
 URL:		http://www.tcl.tk/
 BuildRequires:	autoconf
 BuildRequires:	tcl-devel >= %{version}
 BuildRequires:	xorg-lib-libXScrnSaver-devel
 BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-lib-libXft-devel
-# needed only by configure (SC_PATH_X based on AC_PATH_X)
-BuildRequires:	xorg-lib-libXt-devel
 Requires:	tcl >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -131,6 +130,7 @@ Narzêdzia Tk GUI - programy demonstracyjne.
 %patch7 -p1
 %patch8 -p1
 %patch9 -p1
+%patch10 -p1
 
 %build
 cd unix
