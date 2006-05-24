@@ -1,6 +1,5 @@
-diff -ru --exclude=CVS tk-virgin/unix/tkUnix3d.c tk/unix/tkUnix3d.c
---- tk-virgin/unix/tkUnix3d.c	2003-08-18 15:43:37.000000000 -0500
-+++ tk/unix/tkUnix3d.c	2003-08-19 13:46:04.000000000 -0500
+--- tk8.5a4/unix/tkUnix3d.c.orig	2005-11-13 22:00:17.000000000 +0100
++++ tk8.5a4/unix/tkUnix3d.c	2006-05-24 01:21:30.399824500 +0200
 @@ -26,6 +26,7 @@
  typedef struct {
      TkBorder info;
@@ -17,7 +16,7 @@ diff -ru --exclude=CVS tk-virgin/unix/tkUnix3d.c tk/unix/tkUnix3d.c
      return (TkBorder *) borderPtr;
  }
  
-@@ -80,6 +82,9 @@
+@@ -79,6 +81,9 @@
      if (unixBorderPtr->solidGC != None) {
  	Tk_FreeGC(display, unixBorderPtr->solidGC);
      }
@@ -27,15 +26,15 @@ diff -ru --exclude=CVS tk-virgin/unix/tkUnix3d.c tk/unix/tkUnix3d.c
  }
  /*
   *--------------------------------------------------------------
-@@ -124,6 +129,7 @@
- 				 * exterior. */
+@@ -121,6 +126,7 @@
+ 				 * should appear higher than exterior. */
  {
      TkBorder *borderPtr = (TkBorder *) border;
 +    UnixBorder *unixBorderPtr = ((UnixBorder *)borderPtr);
      GC left, right;
      Display *display = Tk_Display(tkwin);
  
-@@ -132,13 +138,34 @@
+@@ -129,13 +135,34 @@
      }
  
      if (relief == TK_RELIEF_RAISED) {
@@ -46,7 +45,7 @@ diff -ru --exclude=CVS tk-virgin/unix/tkUnix3d.c tk/unix/tkUnix3d.c
 +            half++;
 +        }
 +
- 	XFillRectangle(display, drawable, 
+ 	XFillRectangle(display, drawable,
  		(leftBevel) ? borderPtr->lightGC : borderPtr->darkGC,
  		x, y, (unsigned) width, (unsigned) height);
 +	XFillRectangle(display, drawable, 
@@ -61,7 +60,7 @@ diff -ru --exclude=CVS tk-virgin/unix/tkUnix3d.c tk/unix/tkUnix3d.c
 +            half++;
 +        }
 +
- 	XFillRectangle(display, drawable, 
+ 	XFillRectangle(display, drawable,
 -		(leftBevel) ? borderPtr->darkGC : borderPtr->lightGC,
 +		(leftBevel) ? borderPtr->darkGC : borderPtr->bgGC,
  		x, y, (unsigned) width, (unsigned) height);
@@ -71,30 +70,28 @@ diff -ru --exclude=CVS tk-virgin/unix/tkUnix3d.c tk/unix/tkUnix3d.c
      } else if (relief == TK_RELIEF_RIDGE) {
  	int half;
  
-@@ -244,8 +271,8 @@
- 	    bottomGC = borderPtr->lightGC;
- 	    break;
- 	case TK_RELIEF_RAISED:
--	    topGC = bottomGC =
--		    (topBevel) ? borderPtr->lightGC : borderPtr->darkGC;
+@@ -239,7 +266,8 @@
+ 	bottomGC = borderPtr->lightGC;
+ 	break;
+     case TK_RELIEF_RAISED:
+-	topGC = bottomGC = (topBevel? borderPtr->lightGC : borderPtr->darkGC);
 +	    topGC = (topBevel) ? borderPtr->lightGC : borderPtr->darkGC,
 +	    bottomGC = (topBevel) ? borderPtr->bgGC : unixBorderPtr->blackGC;
- 	    break;
- 	case TK_RELIEF_RIDGE:
- 	    topGC = borderPtr->lightGC;
-@@ -263,8 +290,9 @@
+ 	break;
+     case TK_RELIEF_RIDGE:
+ 	topGC = borderPtr->lightGC;
+@@ -256,7 +284,9 @@
  		(unsigned) width, (unsigned) height);
- 	    return;
- 	case TK_RELIEF_SUNKEN:
--	    topGC = bottomGC =
--		    (topBevel) ? borderPtr->darkGC : borderPtr->lightGC;
+ 	return;
+     case TK_RELIEF_SUNKEN:
+-	topGC = bottomGC = (topBevel? borderPtr->darkGC : borderPtr->lightGC);
 +	    bottomGC = (topBevel) ? unixBorderPtr->blackGC : borderPtr->lightGC;
 +	    topGC = (topBevel) ? borderPtr->darkGC
 +		: borderPtr->bgGC;
- 	    break;
+ 	break;
      }
  
-@@ -283,7 +311,10 @@
+@@ -275,7 +305,10 @@
      x1Delta = (leftIn) ? 1 : -1;
      x2Delta = (rightIn) ? -1 : 1;
      halfway = y + height/2;
@@ -106,7 +103,7 @@ diff -ru --exclude=CVS tk-virgin/unix/tkUnix3d.c tk/unix/tkUnix3d.c
  	halfway++;
      }
      bottom = y + height;
-@@ -412,6 +443,9 @@
+@@ -403,6 +436,9 @@
  	gcValues.foreground = borderPtr->darkColorPtr->pixel;
  	borderPtr->darkGC = Tk_GetGC(tkwin, GCForeground, &gcValues);
  
@@ -116,16 +113,7 @@ diff -ru --exclude=CVS tk-virgin/unix/tkUnix3d.c tk/unix/tkUnix3d.c
  	/*
  	 * Compute the light shadow color
  	 */
-@@ -440,7 +474,7 @@
- 	    tmp2 = (MAX_INTENSITY + b)/2;
- 	    lightColor.blue = (tmp1 > tmp2) ? tmp1 : tmp2;
- 	}
--	
-+
-        /*
-         * Allocate the light shadow color and its GC
-         */
-@@ -448,6 +482,7 @@
+@@ -439,6 +475,7 @@
  	borderPtr->lightColorPtr = Tk_GetColorByValue(tkwin, &lightColor);
  	gcValues.foreground = borderPtr->lightColorPtr->pixel;
  	borderPtr->lightGC = Tk_GetGC(tkwin, GCForeground, &gcValues);
