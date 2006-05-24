@@ -8,28 +8,31 @@ Summary(uk):	Tk GUI toolkit ÄÌÑ Tcl
 Name:		tk
 %define major	8.5
 Version:	%{major}
-%define	rel	a3
-Release:	0.%{rel}.2
+%define	rel	a4
+Release:	0.%{rel}.1
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	http://dl.sourceforge.net/tcl/%{name}%{version}%{rel}-src.tar.gz
-# Source0-md5:	99c19b0547f637667f1101754cee2e8a
+# Source0-md5:	da1bd183388a15db2479f0724bab42b2
 Patch0:		%{name}-ieee.patch
 Patch1:		%{name}-manlnk.patch
 Patch2:		%{name}-pil.patch
-Patch4:		%{name}-opt_flags_pass_fix.patch
-Patch6:		%{name}-soname_fix.patch
-Patch7:		%{name}-norpath.patch
+Patch3:		%{name}-opt_flags_pass_fix.patch
+Patch4:		%{name}-soname_fix.patch
+Patch5:		%{name}-norpath.patch
 # http://www.tclsource.org/?page=tk
-Patch8:		%{name}-aa-cairo.patch
-Patch9:		%{name}-unix-scrollbars.patch
-Patch10:	%{name}-unix-3d-borders.patch
-Patch11:	%{name}-lib64.patch
-Patch12:	tcl-shell-quotes.patch
+Patch6:		%{name}-aa-cairo.patch
+Patch7:		%{name}-unix-scrollbars.patch
+Patch8:		%{name}-unix-3d-borders.patch
+Patch9:		%{name}-lib64.patch
 URL:		http://www.tcl.tk/
-BuildRequires:	xorg-lib-libXft-devel
 BuildRequires:	autoconf
 BuildRequires:	tcl-devel >= %{version}
+BuildRequires:	xorg-lib-libXScrnSaver-devel
+BuildRequires:	xorg-lib-libXext-devel
+BuildRequires:	xorg-lib-libXft-devel
+# needed only by configure (SC_PATH_X based on AC_PATH_X)
+BuildRequires:	xorg-lib-libXt-devel
 Requires:	tcl >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -121,14 +124,13 @@ Narzêdzia Tk GUI - programy demonstracyjne.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 %patch4 -p1
-%patch6 -p1
+%patch5 -p1
+#%patch6 -p1
 %patch7 -p1
-#%patch8 -p1
+%patch8 -p1
 %patch9 -p1
-%patch10 -p1
-%patch11 -p1
-%patch12 -p1
 
 %build
 cd unix
@@ -203,6 +205,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(it) %{_ulibdir}/tk%{major}/msgs/it.msg
 %lang(nl) %{_ulibdir}/tk%{major}/msgs/nl.msg
 %lang(pl) %{_ulibdir}/tk%{major}/msgs/pl.msg
+%lang(pt) %{_ulibdir}/tk%{major}/msgs/pt.msg
 %lang(ru) %{_ulibdir}/tk%{major}/msgs/ru.msg
 %lang(sv) %{_ulibdir}/tk%{major}/msgs/sv.msg
 %{_mandir}/man1/*
