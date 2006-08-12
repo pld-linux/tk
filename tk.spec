@@ -160,10 +160,10 @@ install -d $RPM_BUILD_ROOT{%{_mandir},%{_ulibdir}}
 install -d $RPM_BUILD_ROOT%{_includedir}/%{name}-private/{generic,unix}
 find generic unix -name "*.h" -exec cp -p '{}' $RPM_BUILD_ROOT%{_includedir}/%{name}-private/'{}' ';'
 for h in $RPM_BUILD_ROOT%{_includedir}/*.h; do
-        rh=$(basename "$h")
-        if [ -f "$RPM_BUILD_ROOT%{_includedir}/%{name}-private/generic/$rh" ]; then
-                ln -sf "../../$rh" $RPM_BUILD_ROOT%{_includedir}/%{name}-private/generic
-        fi
+	rh=$(basename "$h")
+	if [ -f "$RPM_BUILD_ROOT%{_includedir}/%{name}-private/generic/$rh" ]; then
+		ln -sf "../../$rh" $RPM_BUILD_ROOT%{_includedir}/%{name}-private/generic
+	fi
 done
 
 ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk.so
