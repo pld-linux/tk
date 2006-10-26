@@ -198,9 +198,9 @@ rm -rf $RPM_BUILD_ROOT
 %lang(el) %{_ulibdir}/tk%{major}/msgs/el.msg
 %{_ulibdir}/tk%{major}/msgs/en.msg
 %lang(en_GB) %{_ulibdir}/tk%{major}/msgs/en_gb.msg
-%lang(es) %{_ulibdir}/tk%{major}/msgs/es_*.msg
 %lang(eo) %{_ulibdir}/tk%{major}/msgs/eo.msg
 %lang(es) %{_ulibdir}/tk%{major}/msgs/es.msg
+%lang(es) %{_ulibdir}/tk%{major}/msgs/es_ES.msg
 %lang(fr) %{_ulibdir}/tk%{major}/msgs/fr.msg
 %lang(it) %{_ulibdir}/tk%{major}/msgs/it.msg
 %lang(nl) %{_ulibdir}/tk%{major}/msgs/nl.msg
@@ -212,10 +212,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/*
 %attr(755,root,root) %{_ulibdir}/tkConfig.sh
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/libtkstub%{major}.a
+%{_includedir}/*
 %{_mandir}/man3/*
 %{_mandir}/mann/*
 
