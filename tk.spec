@@ -1,10 +1,10 @@
 Summary:	Tk GUI toolkit for Tcl, with shared libraries
-Summary(de.UTF-8):   Tk GUI-Toolkit für Tcl mit gemeinsam genutzten Libraries
-Summary(fr.UTF-8):   Boite à outil d'interfaçage graphique Tk pour Tcl avec librairies partagées
-Summary(pl.UTF-8):   Tk GUI narzędzia dla Tcl wraz z bibliotekami dynamicznymi
-Summary(ru.UTF-8):   Tk GUI toolkit для Tcl
-Summary(tr.UTF-8):   Tk, Tcl için grafik kullanıcı arabirimi araç takımıdır
-Summary(uk.UTF-8):   Tk GUI toolkit для Tcl
+Summary(de.UTF-8):	Tk GUI-Toolkit für Tcl mit gemeinsam genutzten Libraries
+Summary(fr.UTF-8):	Boite à outil d'interfaçage graphique Tk pour Tcl avec librairies partagées
+Summary(pl.UTF-8):	Tk GUI narzędzia dla Tcl wraz z bibliotekami dynamicznymi
+Summary(ru.UTF-8):	Tk GUI toolkit для Tcl
+Summary(tr.UTF-8):	Tk, Tcl için grafik kullanıcı arabirimi araç takımıdır
+Summary(uk.UTF-8):	Tk GUI toolkit для Tcl
 Name:		tk
 %define major	8.5
 Version:	%{major}
@@ -94,7 +94,7 @@ Tk - це набір екранних примітивів для X Window, пр
 
 %package devel
 Summary:	Tk GUI toolkit for Tcl header files and development documentation
-Summary(pl.UTF-8):   Narzędzia Tk GUI - pliki nagłówkowe i dokumentacja
+Summary(pl.UTF-8):	Narzędzia Tk GUI - pliki nagłówkowe i dokumentacja
 Group:		Development/Languages/Tcl
 Requires:	%{name} = %{version}-%{release}
 Requires:	xorg-lib-libXft-devel
@@ -108,7 +108,7 @@ Narzędzia Tk GUI - pliki nagłówkowe i dokumentacja.
 
 %package demo
 Summary:	Tk GUI toolkit for Tcl - demo programs
-Summary(pl.UTF-8):   Narzędzia Tk GUI - programy demonstracyjne
+Summary(pl.UTF-8):	Narzędzia Tk GUI - programy demonstracyjne
 Group:		Development/Languages/Tcl
 Requires:	%{name} = %{version}-%{release}
 
