@@ -1,10 +1,10 @@
 Summary:	Tk GUI toolkit for Tcl, with shared libraries
-Summary(de):	Tk GUI-Toolkit für Tcl mit gemeinsam genutzten Libraries
-Summary(fr):	Boite à outil d'interfaçage graphique Tk pour Tcl avec librairies partagées
-Summary(pl):	Tk GUI narzêdzia dla Tcl wraz z bibliotekami dynamicznymi
-Summary(ru):	Tk GUI toolkit ÄÌÑ Tcl
-Summary(tr):	Tk, Tcl için grafik kullanýcý arabirimi araç takýmýdýr
-Summary(uk):	Tk GUI toolkit ÄÌÑ Tcl
+Summary(de.UTF-8):   Tk GUI-Toolkit fÃ¼r Tcl mit gemeinsam genutzten Libraries
+Summary(fr.UTF-8):   Boite Ã  outil d'interfaÃ§age graphique Tk pour Tcl avec librairies partagÃ©es
+Summary(pl.UTF-8):   Tk GUI narzÄ™dzia dla Tcl wraz z bibliotekami dynamicznymi
+Summary(ru.UTF-8):   Tk GUI toolkit Ð´Ð»Ñ Tcl
+Summary(tr.UTF-8):   Tk, Tcl iÃ§in grafik kullanÄ±cÄ± arabirimi araÃ§ takÄ±mÄ±dÄ±r
+Summary(uk.UTF-8):   Tk GUI toolkit Ð´Ð»Ñ Tcl
 Name:		tk
 %define major	8.5
 Version:	%{major}
@@ -46,55 +46,55 @@ featured GUI's in only a little more time then it takes to write a
 text based interface. Tcl/Tk applications can also be run on Windows
 and Macintosh platforms.
 
-%description -l de
-Tk ist ein Widget-Satz für X-Window für den Einsatz mit der Script
-Sprache Tcl. Sie können einfache Programme mit voll funktionsfähigen
+%description -l de.UTF-8
+Tk ist ein Widget-Satz fÃ¼r X-Window fÃ¼r den Einsatz mit der Script
+Sprache Tcl. Sie kÃ¶nnen einfache Programme mit voll funktionsfÃ¤higen
 GUIs in fast genauso schnell schreiben, wie eine zeichenorientierte
-Oberfläche. Tcl/Tk-Anwendungen können auch auf Windows und
-Macintosh-Plattformen ausgeführt werden.
+OberflÃ¤che. Tcl/Tk-Anwendungen kÃ¶nnen auch auf Windows und
+Macintosh-Plattformen ausgefÃ¼hrt werden.
 
-%description -l fr
-Tk est un ensemble de widgets X Window crée pour fonctionner avec le
-langage de script Tcl. Il permet d'écrire des programmes simples avec
-des fonctionnalités entiérement interfacées en à peine plus de temps
+%description -l fr.UTF-8
+Tk est un ensemble de widgets X Window crÃ©e pour fonctionner avec le
+langage de script Tcl. Il permet d'Ã©crire des programmes simples avec
+des fonctionnalitÃ©s entiÃ©rement interfacÃ©es en Ã  peine plus de temps
 qu'avec interface texte. Les applications Tcl/Tk peuvent aussi
 fonctionner sur des plateformes Windows ou Macintosh.
 
-%description -l ja
-Tk ¤Ï Tcl ¥¹¥¯¥ê¥×¥È¸À¸ì¤ÈÌ©ÀÜ¤ËÆ°ºî¤¹¤ë¤è¤¦¤Ë¥Ç¥¶¥¤¥ó¤µ¤ì¤¿ X Window
-System ¤Î¥¦¥£¥¸¥§¥Ã¥È¥»¥Ã¥È¤Ç¤¹¡£ ¥Æ¥­¥¹¥È¥Ù¡¼¥¹¤Î¥¤¥ó¥¿¡¼¥Õ¥§¡¼¥¹¤ò
-ºÎÍÑ¤·¤Æ¤ë¤Î¤Ç¡¢¤¢¤é¤æ¤ëÆÃÄ§¤ò¤â¤Ã¤¿ GUI
-¤ò¾¯¤Ê¤¤»þ´Ö¤Ç¡¢´ÊÃ±¤Ê¥×¥í¥°¥é ¥à¤Ç½ñ¤¯¤³¤È¤¬¤Ç¤­¤Þ¤¹¡£ Tcl/Tk
-¥¢¥×¥ê¥±¡¼¥·¥ç¥ó¤Ï Windows ¤ä Macintosh
-¤Î¥×¥é¥Ã¥È¥Õ¥©¡¼¥à¤Ç¼Â¹Ô¤¹¤ë¤³¤È¤â¤Ç¤­¤Þ¤¹¡£
+%description -l ja.UTF-8
+Tk ã¯ Tcl ã‚¹ã‚¯ãƒªãƒ—ãƒˆè¨€èªžã¨å¯†æŽ¥ã«å‹•ä½œã™ã‚‹ã‚ˆã†ã«ãƒ‡ã‚¶ã‚¤ãƒ³ã•ã‚ŒãŸ X Window
+System ã®ã‚¦ã‚£ã‚¸ã‚§ãƒƒãƒˆã‚»ãƒƒãƒˆã§ã™ã€‚ ãƒ†ã‚­ã‚¹ãƒˆãƒ™ãƒ¼ã‚¹ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã‚’
+æŽ¡ç”¨ã—ã¦ã‚‹ã®ã§ã€ã‚ã‚‰ã‚†ã‚‹ç‰¹å¾´ã‚’ã‚‚ã£ãŸ GUI
+ã‚’å°‘ãªã„æ™‚é–“ã§ã€ç°¡å˜ãªãƒ—ãƒ­ã‚°ãƒ© ãƒ ã§æ›¸ãã“ã¨ãŒã§ãã¾ã™ã€‚ Tcl/Tk
+ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã¯ Windows ã‚„ Macintosh
+ã®ãƒ—ãƒ©ãƒƒãƒˆãƒ•ã‚©ãƒ¼ãƒ ã§å®Ÿè¡Œã™ã‚‹ã“ã¨ã‚‚ã§ãã¾ã™ã€‚
 
-%description -l pl
-Tk jest zbiorem kontrolek X Window, przeznaczonym do pracy z jêzykiem
-skryptowym Tcl. Pakiet ten pozwala na pisanie prostych programów z
+%description -l pl.UTF-8
+Tk jest zbiorem kontrolek X Window, przeznaczonym do pracy z jÄ™zykiem
+skryptowym Tcl. Pakiet ten pozwala na pisanie prostych programÃ³w z
 GUI.
 
-%description -l ru
-Tk - ÜÔÏ ÎÁÂÏÒ ÜËÒÁÎÎÙÈ ÐÒÉÍÉÔÉ×Ï× ÄÌÑ X Window, ÐÒÅÄÎÁÚÎÁÞÅÎÎÙÊ ÄÌÑ
-ÒÁÂÏÔÙ Ó ÉÎÔÅÒÐÒÅÔÅÒÉÒÕÅÍÙÍ ÑÚÙËÏÍ Tcl. ïÎ ÐÏÚ×ÏÌÑÅÔ ÐÉÓÁÔØ
-ÐÏÌÎÏÃÅÎÎÙÅ ÐÒÏÇÒÁÍÍÙ Ó ÇÒÁÆÉÞÅÓËÉÍ ÉÎÔÅÒÆÅÊÓÏÍ ÐÒÁËÔÉÞÅÓËÉ ÚÁ ÔÏ ÖÅ
-×ÒÅÍÑ, ÞÔÏ É ÐÒÏÇÒÁÍÍÙ ÔÅËÓÔÏ×ÏÇÏ ÒÅÖÉÍÁ. ðÒÏÇÒÁÍÍÙ ÎÁ Tcl/Tk ÔÁËÖÅ
-ÍÏÇÕÔ ÒÁÂÏÔÁÔØ ÐÏÄ Windows É Macintosh.
+%description -l ru.UTF-8
+Tk - ÑÑ‚Ð¾ Ð½Ð°Ð±Ð¾Ñ€ ÑÐºÑ€Ð°Ð½Ð½Ñ‹Ñ… Ð¿Ñ€Ð¸Ð¼Ð¸Ñ‚Ð¸Ð²Ð¾Ð² Ð´Ð»Ñ X Window, Ð¿Ñ€ÐµÐ´Ð½Ð°Ð·Ð½Ð°Ñ‡ÐµÐ½Ð½Ñ‹Ð¹ Ð´Ð»Ñ
+Ñ€Ð°Ð±Ð¾Ñ‚Ñ‹ Ñ Ð¸Ð½Ñ‚ÐµÑ€Ð¿Ñ€ÐµÑ‚ÐµÑ€Ð¸Ñ€ÑƒÐµÐ¼Ñ‹Ð¼ ÑÐ·Ñ‹ÐºÐ¾Ð¼ Tcl. ÐžÐ½ Ð¿Ð¾Ð·Ð²Ð¾Ð»ÑÐµÑ‚ Ð¿Ð¸ÑÐ°Ñ‚ÑŒ
+Ð¿Ð¾Ð»Ð½Ð¾Ñ†ÐµÐ½Ð½Ñ‹Ðµ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ñ‹ Ñ Ð³Ñ€Ð°Ñ„Ð¸Ñ‡ÐµÑÐºÐ¸Ð¼ Ð¸Ð½Ñ‚ÐµÑ€Ñ„ÐµÐ¹ÑÐ¾Ð¼ Ð¿Ñ€Ð°ÐºÑ‚Ð¸Ñ‡ÐµÑÐºÐ¸ Ð·Ð° Ñ‚Ð¾ Ð¶Ðµ
+Ð²Ñ€ÐµÐ¼Ñ, Ñ‡Ñ‚Ð¾ Ð¸ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ñ‹ Ñ‚ÐµÐºÑÑ‚Ð¾Ð²Ð¾Ð³Ð¾ Ñ€ÐµÐ¶Ð¸Ð¼Ð°. ÐŸÑ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ñ‹ Ð½Ð° Tcl/Tk Ñ‚Ð°ÐºÐ¶Ðµ
+Ð¼Ð¾Ð³ÑƒÑ‚ Ñ€Ð°Ð±Ð¾Ñ‚Ð°Ñ‚ÑŒ Ð¿Ð¾Ð´ Windows Ð¸ Macintosh.
 
-%description -l tr
-Tk, Tcl betimleme dili ile birlikte kullanýlmak üzere tasarlanmýþ bir
-X Window arayüz elemaný kümesidir. Tcl/Tk uygulamalarý MS-Windows ve
-Macintosh ortamlarýnda da çalýþtýrýlabilir.
+%description -l tr.UTF-8
+Tk, Tcl betimleme dili ile birlikte kullanÄ±lmak Ã¼zere tasarlanmÄ±ÅŸ bir
+X Window arayÃ¼z elemanÄ± kÃ¼mesidir. Tcl/Tk uygulamalarÄ± MS-Windows ve
+Macintosh ortamlarÄ±nda da Ã§alÄ±ÅŸtÄ±rÄ±labilir.
 
-%description -l uk
-Tk - ÃÅ ÎÁÂ¦Ò ÅËÒÁÎÎÉÈ ÐÒÉÍ¦ÔÉ×¦× ÄÌÑ X Window, ÐÒÉÚÎÁÞÅÎÉÊ ÄÌÑ
-ÒÏÂÏÔÉ Ú ¦ÎÔÅÒÐÒÅÔÏ×ÁÎÏÀ ÍÏ×ÏÀ Tcl. ÷¦Î ÄÏÚ×ÏÌÑ¤ ÐÉÓÁÔÉ ÐÏ×ÎÏÃ¦ÎÎ¦
-ÐÒÏÇÒÁÍÉ Ú ÇÒÁÆ¦ÞÎÉÍ ¦ÎÔÅÒÆÅÊÓÏÍ ÐÒÁËÔÉÞÎÏ ÚÁ ÔÏÊ ÖÅ ÞÁÓ, ÝÏ ¦
-ÐÒÏÇÒÁÍÉ ÔÅËÓÔÏ×ÏÇÏ ÒÅÖÉÍÕ. ðÒÏÇÒÁÍÉ ÎÁ Tcl/Tk ÔÁËÏÖ ÍÏÖÕÔØ ÐÒÁÃÀ×ÁÔÉ
-Ð¦Ä Windoze ÔÁ Macintosh.
+%description -l uk.UTF-8
+Tk - Ñ†Ðµ Ð½Ð°Ð±Ñ–Ñ€ ÐµÐºÑ€Ð°Ð½Ð½Ð¸Ñ… Ð¿Ñ€Ð¸Ð¼Ñ–Ñ‚Ð¸Ð²Ñ–Ð² Ð´Ð»Ñ X Window, Ð¿Ñ€Ð¸Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ð¹ Ð´Ð»Ñ
+Ñ€Ð¾Ð±Ð¾Ñ‚Ð¸ Ð· Ñ–Ð½Ñ‚ÐµÑ€Ð¿Ñ€ÐµÑ‚Ð¾Ð²Ð°Ð½Ð¾ÑŽ Ð¼Ð¾Ð²Ð¾ÑŽ Tcl. Ð’Ñ–Ð½ Ð´Ð¾Ð·Ð²Ð¾Ð»ÑÑ” Ð¿Ð¸ÑÐ°Ñ‚Ð¸ Ð¿Ð¾Ð²Ð½Ð¾Ñ†Ñ–Ð½Ð½Ñ–
+Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¸ Ð· Ð³Ñ€Ð°Ñ„Ñ–Ñ‡Ð½Ð¸Ð¼ Ñ–Ð½Ñ‚ÐµÑ€Ñ„ÐµÐ¹ÑÐ¾Ð¼ Ð¿Ñ€Ð°ÐºÑ‚Ð¸Ñ‡Ð½Ð¾ Ð·Ð° Ñ‚Ð¾Ð¹ Ð¶Ðµ Ñ‡Ð°Ñ, Ñ‰Ð¾ Ñ–
+Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¸ Ñ‚ÐµÐºÑÑ‚Ð¾Ð²Ð¾Ð³Ð¾ Ñ€ÐµÐ¶Ð¸Ð¼Ñƒ. ÐŸÑ€Ð¾Ð³Ñ€Ð°Ð¼Ð¸ Ð½Ð° Tcl/Tk Ñ‚Ð°ÐºÐ¾Ð¶ Ð¼Ð¾Ð¶ÑƒÑ‚ÑŒ Ð¿Ñ€Ð°Ñ†ÑŽÐ²Ð°Ñ‚Ð¸
+Ð¿Ñ–Ð´ Windoze Ñ‚Ð° Macintosh.
 
 %package devel
 Summary:	Tk GUI toolkit for Tcl header files and development documentation
-Summary(pl):	Narzêdzia Tk GUI - pliki nag³ówkowe i dokumentacja
+Summary(pl.UTF-8):   NarzÄ™dzia Tk GUI - pliki nagÅ‚Ã³wkowe i dokumentacja
 Group:		Development/Languages/Tcl
 Requires:	%{name} = %{version}-%{release}
 Requires:	xorg-lib-libXft-devel
@@ -103,20 +103,20 @@ Requires:	tcl-devel >= %{version}
 %description devel
 Tk GUI toolkit for Tcl header files and development documentation.
 
-%description devel -l pl
-Narzêdzia Tk GUI - pliki nag³ówkowe i dokumentacja.
+%description devel -l pl.UTF-8
+NarzÄ™dzia Tk GUI - pliki nagÅ‚Ã³wkowe i dokumentacja.
 
 %package demo
 Summary:	Tk GUI toolkit for Tcl - demo programs
-Summary(pl):	Narzêdzia Tk GUI - programy demonstracyjne
+Summary(pl.UTF-8):   NarzÄ™dzia Tk GUI - programy demonstracyjne
 Group:		Development/Languages/Tcl
 Requires:	%{name} = %{version}-%{release}
 
 %description demo
 Tk GUI toolkit for Tcl - demo programs.
 
-%description demo -l pl
-Narzêdzia Tk GUI - programy demonstracyjne.
+%description demo -l pl.UTF-8
+NarzÄ™dzia Tk GUI - programy demonstracyjne.
 
 %prep
 %setup -q -n %{name}%{version}%{rel}
