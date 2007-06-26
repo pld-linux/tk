@@ -8,12 +8,12 @@ Summary(uk.UTF-8):	Tk GUI toolkit для Tcl
 Name:		tk
 %define major	8.5
 Version:	%{major}
-%define	rel	a5
+%define	rel	a6
 Release:	0.%{rel}.1
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	http://dl.sourceforge.net/tcl/%{name}%{version}%{rel}-src.tar.gz
-# Source0-md5:	c46f923384b18c2b5ff9dc931df9a47c
+# Source0-md5:	3903199e8c5ee921f747a5d59174ed68
 Patch0:		%{name}-ieee.patch
 Patch1:		%{name}-manlnk.patch
 Patch2:		%{name}-pil.patch
@@ -200,7 +200,6 @@ rm -rf $RPM_BUILD_ROOT
 %lang(en_GB) %{_ulibdir}/tk%{major}/msgs/en_gb.msg
 %lang(eo) %{_ulibdir}/tk%{major}/msgs/eo.msg
 %lang(es) %{_ulibdir}/tk%{major}/msgs/es.msg
-%lang(es) %{_ulibdir}/tk%{major}/msgs/es_ES.msg
 %lang(fr) %{_ulibdir}/tk%{major}/msgs/fr.msg
 %lang(it) %{_ulibdir}/tk%{major}/msgs/it.msg
 %lang(nl) %{_ulibdir}/tk%{major}/msgs/nl.msg
@@ -208,6 +207,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(pt) %{_ulibdir}/tk%{major}/msgs/pt.msg
 %lang(ru) %{_ulibdir}/tk%{major}/msgs/ru.msg
 %lang(sv) %{_ulibdir}/tk%{major}/msgs/sv.msg
+%{_ulibdir}/tk%{major}/ttk
 %{_mandir}/man1/*
 
 %files devel
