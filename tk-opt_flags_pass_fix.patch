@@ -7,6 +7,6 @@ diff -Nru tk8.3.2/unix/tcl.m4 tk8.3.2.new/unix/tcl.m4
      CFLAGS_DEBUG=-g
 -    CFLAGS_OPTIMIZE=-O
 +    CFLAGS_OPTIMIZE="${CFLAGS}"
-     if test "$GCC" = "yes" ; then
- 	CFLAGS_WARNING="-Wall -Wconversion -Wno-implicit-int"
-     else
+     AS_IF([test "$GCC" = yes], [
+ 	CFLAGS_WARNING="-Wall -Wno-implicit-int"
+     ], [CFLAGS_WARNING=""])
