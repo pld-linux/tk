@@ -7,13 +7,12 @@ Summary(tr.UTF-8):	Tk, Tcl için grafik kullanıcı arabirimi araç takımıdır
 Summary(uk.UTF-8):	Tk GUI toolkit для Tcl
 Name:		tk
 %define major	8.5
-Version:	%{major}
-%define	rel	b3
-Release:	0.%{rel}.1
+Version:	%{major}.0
+Release:	1
 License:	BSD
 Group:		Development/Languages/Tcl
-Source0:	http://dl.sourceforge.net/tcl/%{name}%{version}%{rel}-src.tar.gz
-# Source0-md5:	5c8ff5db8690b866214cd0d63cdecc5a
+Source0:	http://dl.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
+# Source0-md5:	bc217c45ed6b2f5b8d3120df63fa13bd
 Patch0:		%{name}-ieee.patch
 Patch1:		%{name}-manlnk.patch
 Patch2:		%{name}-pil.patch
@@ -119,7 +118,7 @@ Tk GUI toolkit for Tcl - demo programs.
 Narzędzia Tk GUI - programy demonstracyjne.
 
 %prep
-%setup -q -n %{name}%{version}%{rel}
+%setup -q -n %{name}%{version}
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
@@ -146,8 +145,8 @@ TCL_BIN_DIR=%{_libdir}
 
 %{__make}
 
-sed -i -e "s#%{_builddir}/%{name}%{version}%{rel}/unix#%{_libdir}#; \
-	s#%{_builddir}/%{name}%{version}%{rel}#%{_includedir}/%{name}-private#" tkConfig.sh
+sed -i -e "s#%{_builddir}/%{name}%{version}/unix#%{_libdir}#; \
+	s#%{_builddir}/%{name}%{version}#%{_includedir}/%{name}-private#" tkConfig.sh
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -194,6 +193,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_ulibdir}/tk%{major}/images
 %dir %{_ulibdir}/tk%{major}/msgs
 %lang(cs) %{_ulibdir}/tk%{major}/msgs/cs.msg
+%lang(da) %{_ulibdir}/tk%{major}/msgs/da.msg
 %lang(de) %{_ulibdir}/tk%{major}/msgs/de.msg
 %lang(el) %{_ulibdir}/tk%{major}/msgs/el.msg
 %{_ulibdir}/tk%{major}/msgs/en.msg
