@@ -1,3 +1,4 @@
+%define major	8.5
 Summary:	Tk GUI toolkit for Tcl, with shared libraries
 Summary(de.UTF-8):	Tk GUI-Toolkit für Tcl mit gemeinsam genutzten Libraries
 Summary(fr.UTF-8):	Boite à outil d'interfaçage graphique Tk pour Tcl avec librairies partagées
@@ -6,9 +7,8 @@ Summary(ru.UTF-8):	Tk GUI toolkit для Tcl
 Summary(tr.UTF-8):	Tk, Tcl için grafik kullanıcı arabirimi araç takımıdır
 Summary(uk.UTF-8):	Tk GUI toolkit для Tcl
 Name:		tk
-%define major	8.5
 Version:	%{major}.0
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	http://dl.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
@@ -34,8 +34,7 @@ BuildRequires:	xorg-lib-libXft-devel
 Requires:	tcl >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_ulibdir	/usr/lib
-
+%define		_ulibdir	%{_prefix}/lib
 %define		specflags	-fno-strict-aliasing
 
 %description
@@ -85,19 +84,19 @@ X Window arayüz elemanı kümesidir. Tcl/Tk uygulamaları MS-Windows ve
 Macintosh ortamlarında da çalıştırılabilir.
 
 %description -l uk.UTF-8
-Tk - це набір екранних примітивів для X Window, призначений для
-роботи з інтерпретованою мовою Tcl. Він дозволяє писати повноцінні
-програми з графічним інтерфейсом практично за той же час, що і
-програми текстового режиму. Програми на Tcl/Tk також можуть працювати
-під Windoze та Macintosh.
+Tk - це набір екранних примітивів для X Window, призначений для роботи
+з інтерпретованою мовою Tcl. Він дозволяє писати повноцінні програми з
+графічним інтерфейсом практично за той же час, що і програми
+текстового режиму. Програми на Tcl/Tk також можуть працювати під
+Windoze та Macintosh.
 
 %package devel
 Summary:	Tk GUI toolkit for Tcl header files and development documentation
 Summary(pl.UTF-8):	Narzędzia Tk GUI - pliki nagłówkowe i dokumentacja
 Group:		Development/Languages/Tcl
 Requires:	%{name} = %{version}-%{release}
-Requires:	xorg-lib-libXft-devel
 Requires:	tcl-devel >= %{version}
+Requires:	xorg-lib-libXft-devel
 
 %description devel
 Tk GUI toolkit for Tcl header files and development documentation.
