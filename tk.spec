@@ -7,12 +7,12 @@ Summary(ru.UTF-8):	Tk GUI toolkit для Tcl
 Summary(tr.UTF-8):	Tk, Tcl için grafik kullanıcı arabirimi araç takımıdır
 Summary(uk.UTF-8):	Tk GUI toolkit для Tcl
 Name:		tk
-Version:	%{major}.2
-Release:	2
+Version:	%{major}.3
+Release:	1
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	http://dl.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
-# Source0-md5:	bd014bd3e1a818e06ad375b95241452d
+# Source0-md5:	c7d2ef187d0f313850689cda20148ec3
 Patch0:		%{name}-ieee.patch
 Patch1:		%{name}-manlnk.patch
 Patch2:		%{name}-pil.patch
@@ -168,6 +168,7 @@ done
 
 ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk.so
 ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk%{major}.so
+ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk%{major}.so.0
 mv -f $RPM_BUILD_ROOT%{_bindir}/wish%{major} $RPM_BUILD_ROOT%{_bindir}/wish
 
 if [ "%{_libdir}" != "%{_ulibdir}" ] ; then
@@ -184,8 +185,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_bindir}/wish
+%attr(755,root,root) %{_libdir}/libtk%{major}.so.*.*
+%attr(755,root,root) %ghost %{_libdir}/libtk%{major}.so.0
 %dir %{_ulibdir}/tk%{major}
 %{_ulibdir}/tk%{major}/*.tcl
 %{_ulibdir}/tk%{major}/tclIndex
@@ -210,16 +212,19 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ru) %{_ulibdir}/tk%{major}/msgs/ru.msg
 %lang(sv) %{_ulibdir}/tk%{major}/msgs/sv.msg
 %{_ulibdir}/tk%{major}/ttk
-%{_mandir}/man1/*
+%{_mandir}/man1/wish.1*
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_ulibdir}/tkConfig.sh
-%attr(755,root,root) %{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/libtk%{major}.so
+%attr(755,root,root) %{_libdir}/libtk.so
 %{_libdir}/libtkstub%{major}.a
-%{_includedir}/*
-%{_mandir}/man3/*
-%{_mandir}/mann/*
+%{_includedir}/tk*.h
+%{_includedir}/tk-private
+%{_mandir}/man3/Tk_*.3*
+%{_mandir}/man3/Ttk_*.3*
+%{_mandir}/mann/*.n*
 
 %files demo
 %defattr(644,root,root,755)
