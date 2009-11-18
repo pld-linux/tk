@@ -7,12 +7,12 @@ Summary(ru.UTF-8):	Tk GUI toolkit для Tcl
 Summary(tr.UTF-8):	Tk, Tcl için grafik kullanıcı arabirimi araç takımıdır
 Summary(uk.UTF-8):	Tk GUI toolkit для Tcl
 Name:		tk
-Version:	%{major}.7
+Version:	%{major}.8
 Release:	1
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	http://dl.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
-# Source0-md5:	0764f63ae2106b4774c4ecb0ef391610
+# Source0-md5:	13bf90602e16fc530e05196431021dc6
 Patch0:		%{name}-ieee.patch
 Patch1:		%{name}-manlnk.patch
 Patch2:		%{name}-pil.patch
@@ -140,7 +140,6 @@ TCL_BIN_DIR=%{_libdir}
 	--disable-symbols \
 	--disable-threads \
 	--enable-64bit \
-	--enable-gcc \
 	--enable-shared \
 	--enable-xft
 
