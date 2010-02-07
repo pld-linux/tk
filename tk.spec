@@ -8,10 +8,10 @@ Summary(tr.UTF-8):	Tk, Tcl için grafik kullanıcı arabirimi araç takımıdır
 Summary(uk.UTF-8):	Tk GUI toolkit для Tcl
 Name:		tk
 Version:	%{major}.8
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Languages/Tcl
-Source0:	http://dl.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
+Source0:	http://downloads.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
 # Source0-md5:	13bf90602e16fc530e05196431021dc6
 Patch0:		%{name}-ieee.patch
 Patch1:		%{name}-manlnk.patch
@@ -33,6 +33,8 @@ BuildRequires:	xorg-lib-libXScrnSaver-devel
 BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-lib-libXft-devel
 Requires:	tcl >= %{version}
+Provides:	tile = 0.8.2
+Obsoletes:	tile < 0.8.2-1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_ulibdir	%{_prefix}/lib
@@ -171,7 +173,7 @@ ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk%{major}.so.0
 mv -f $RPM_BUILD_ROOT%{_bindir}/wish%{major} $RPM_BUILD_ROOT%{_bindir}/wish
 
 if [ "%{_libdir}" != "%{_ulibdir}" ] ; then
-mv $RPM_BUILD_ROOT%{_libdir}/tk* $RPM_BUILD_ROOT%{_ulibdir}/
+	mv $RPM_BUILD_ROOT%{_libdir}/tk* $RPM_BUILD_ROOT%{_ulibdir}
 fi
 
 install generic/tkInt.h $RPM_BUILD_ROOT%{_includedir}
