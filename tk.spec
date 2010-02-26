@@ -8,7 +8,7 @@ Summary(tr.UTF-8):	Tk, Tcl için grafik kullanıcı arabirimi araç takımıdır
 Summary(uk.UTF-8):	Tk GUI toolkit для Tcl
 Name:		tk
 Version:	%{major}.8
-Release:	2
+Release:	3
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	http://downloads.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
@@ -99,6 +99,8 @@ Summary(pl.UTF-8):	Narzędzia Tk GUI - pliki nagłówkowe i dokumentacja
 Group:		Development/Languages/Tcl
 Requires:	%{name} = %{version}-%{release}
 Requires:	tcl-devel >= %{version}
+Requires:	xorg-lib-libXScrnSaver-devel
+Requires:	xorg-lib-libXext-devel
 Requires:	xorg-lib-libXft-devel
 
 %description devel
