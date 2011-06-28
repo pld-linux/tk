@@ -27,6 +27,7 @@ Patch8:		%{name}-unix-3d-borders.patch
 Patch9:		%{name}-lib64.patch
 Patch10:	%{name}-x.patch
 Patch11:	%{name}-no_tcl_stub.patch
+Patch12:	%{name}-link.patch
 URL:		http://www.tcl.tk/
 BuildRequires:	autoconf
 BuildRequires:	tcl-devel >= %{version}
@@ -136,6 +137,7 @@ Narzędzia Tk GUI - programy demonstracyjne.
 %patch9 -p1
 %patch10 -p1
 %patch11 -p1
+%patch12 -p1
 
 %build
 cd unix
