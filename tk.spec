@@ -9,7 +9,7 @@ Name:		tk
 %define 	major	8.5
 %define     minor   10
 Version:	%{major}.%{minor}
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	http://downloads.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
@@ -164,6 +164,7 @@ install -d $RPM_BUILD_ROOT{%{_mandir},%{_ulibdir}}
 	MAN_INSTALL_DIR=$RPM_BUILD_ROOT%{_mandir}
 
 install -d $RPM_BUILD_ROOT%{_includedir}/%{name}-private/{generic,unix}
+mkdir $RPM_BUILD_ROOT%{_includedir}/%{name}-private/generic/ttk/
 find generic unix -name "*.h" -exec cp -p '{}' $RPM_BUILD_ROOT%{_includedir}/%{name}-private/'{}' ';'
 for h in $RPM_BUILD_ROOT%{_includedir}/*.h; do
 	rh=$(basename "$h")
