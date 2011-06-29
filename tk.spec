@@ -7,7 +7,7 @@ Summary(tr.UTF-8):	Tk, Tcl için grafik kullanıcı arabirimi araç takımıdır
 Summary(uk.UTF-8):	Tk GUI toolkit для Tcl
 Name:		tk
 %define 	major	8.5
-%define     minor   10
+%define		minor	10
 Version:	%{major}.%{minor}
 Release:	3
 License:	BSD
@@ -29,7 +29,8 @@ Patch10:	%{name}-x.patch
 Patch11:	%{name}-no_tcl_stub.patch
 Patch12:	%{name}-link.patch
 URL:		http://www.tcl.tk/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.59
+BuildRequires:	pkgconfig
 BuildRequires:	tcl-devel >= %{version}
 BuildRequires:	xorg-lib-libXScrnSaver-devel
 BuildRequires:	xorg-lib-libXext-devel
