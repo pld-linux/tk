@@ -7,13 +7,13 @@ Summary(tr.UTF-8):	Tk, Tcl için grafik kullanıcı arabirimi araç takımıdır
 Summary(uk.UTF-8):	Tk GUI toolkit для Tcl
 Name:		tk
 %define 	major	8.5
-%define		minor	13
+%define		minor	15
 Version:	%{major}.%{minor}
 Release:	1
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	http://downloads.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
-# Source0-md5:	1fc7dbb7495160756dbc805224afa360
+# Source0-md5:	55b8e33f903210a4e1c8bce0f820657f
 Patch0:		%{name}-ieee.patch
 Patch1:		%{name}-manlnk.patch
 Patch2:		%{name}-pil.patch
@@ -25,7 +25,7 @@ Patch6:		%{name}-aa-cairo.patch
 Patch7:		%{name}-unix-scrollbars.patch
 Patch8:		%{name}-unix-3d-borders.patch
 Patch9:		%{name}-lib64.patch
-Patch10:	%{name}-x.patch
+
 Patch11:	%{name}-no_tcl_stub.patch
 Patch12:	%{name}-link.patch
 URL:		http://www.tcl.tk/
@@ -136,7 +136,7 @@ Narzędzia Tk GUI - programy demonstracyjne.
 %patch7 -p1
 %patch8 -p1
 %patch9 -p1
-%patch10 -p1
+
 %patch11 -p1
 %patch12 -p1
 
