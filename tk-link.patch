@@ -1,11 +1,15 @@
---- tk8.5.10/unix/configure.in.orig	2011-06-29 20:07:08.254526698 +0200
-+++ tk8.5.10/unix/configure.in	2011-06-29 20:17:19.254547155 +0200
-@@ -529,7 +529,7 @@
+diff --git a/unix/configure.in b/unix/configure.in
+index e7bf023..7d12f41 100755
+--- a/unix/configure.in
++++ b/unix/configure.in
+@@ -485,8 +485,8 @@ if test $tk_aqua = no; then
+ 	XFT_LIBS=`xft-config --libs 2>/dev/null` || found_xft="no"
  	if test "$found_xft" = "no" ; then
  	    found_xft=yes
- 	    XFT_CFLAGS=`pkg-config --cflags xft 2>/dev/null` || found_xft="no"
+-	    XFT_CFLAGS=`pkg-config --cflags xft 2>/dev/null` || found_xft="no"
 -	    XFT_LIBS=`pkg-config --libs xft 2>/dev/null` || found_xft="no"
-+	    XFT_LIBS=`pkg-config --libs xft fontconfig 2>/dev/null` || found_xft="no"
++	    XFT_CFLAGS=`pkg-config --cflags xft fontconfig freetype2 2>/dev/null` || found_xft="no"
++	    XFT_LIBS=`pkg-config --libs xft fontconfig freetype2 2>/dev/null` || found_xft="no"
  	fi
  	AC_MSG_RESULT([$found_xft])
  	dnl make sure that compiling against Xft header file doesn't bomb

@@ -6,28 +6,20 @@ Summary(ru.UTF-8):	Tk GUI toolkit для Tcl
 Summary(tr.UTF-8):	Tk, Tcl için grafik kullanıcı arabirimi araç takımıdır
 Summary(uk.UTF-8):	Tk GUI toolkit для Tcl
 Name:		tk
-%define		major	8.5
-%define		minor	15
+%define		major	8.6
+%define		minor	1
 Version:	%{major}.%{minor}
-Release:	2
+Release:	1
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	http://downloads.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
-# Source0-md5:	55b8e33f903210a4e1c8bce0f820657f
-Patch0:		%{name}-ieee.patch
-Patch1:		%{name}-manlnk.patch
-Patch2:		%{name}-pil.patch
-Patch3:		%{name}-opt_flags_pass_fix.patch
-Patch4:		%{name}-soname_fix.patch
-Patch5:		%{name}-norpath.patch
-# http://www.tclsource.org/?page=tk
-Patch6:		%{name}-aa-cairo.patch
-Patch7:		%{name}-unix-scrollbars.patch
-Patch8:		%{name}-unix-3d-borders.patch
-Patch9:		%{name}-lib64.patch
-
-Patch11:	%{name}-no_tcl_stub.patch
-Patch12:	%{name}-link.patch
+# Source0-md5:	63f21c3a0e0cefbd854b4eb29b129ac6
+Patch0:		%{name}-manlnk.patch
+Patch1:		%{name}-opt_flags_pass_fix.patch
+Patch2:		%{name}-norpath.patch
+Patch3:		%{name}-no_tcl_stub.patch
+Patch4:		%{name}-link.patch
+Patch5:		%{name}-soname_fix.patch
 URL:		http://www.tcl.tk/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	pkgconfig
@@ -132,13 +124,6 @@ Narzędzia Tk GUI - programy demonstracyjne.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
-#%patch6 -p1
-%patch7 -p1
-%patch8 -p1
-%patch9 -p1
-
-%patch11 -p1
-%patch12 -p1
 
 %build
 cd unix
@@ -179,7 +164,8 @@ ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk%{major}.so.0
 mv -f $RPM_BUILD_ROOT%{_bindir}/wish%{major} $RPM_BUILD_ROOT%{_bindir}/wish
 
 if [ "%{_libdir}" != "%{_ulibdir}" ] ; then
-	mv $RPM_BUILD_ROOT%{_libdir}/tk* $RPM_BUILD_ROOT%{_ulibdir}
+	mv $RPM_BUILD_ROOT%{_libdir}/tkConfig.sh $RPM_BUILD_ROOT%{_ulibdir}
+	mv $RPM_BUILD_ROOT%{_libdir}/tk%{major}/pkgIndex.tcl $RPM_BUILD_ROOT%{_ulibdir}/tk%{major}
 fi
 
 install generic/tkInt.h $RPM_BUILD_ROOT%{_includedir}
@@ -226,6 +212,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libtk%{major}.so
 %attr(755,root,root) %{_libdir}/libtk.so
 %{_libdir}/libtkstub%{major}.a
+%{_pkgconfigdir}/tk.pc
 %{_includedir}/tk*.h
 %{_includedir}/tk-private
 %{_mandir}/man3/Tk_*.3*
