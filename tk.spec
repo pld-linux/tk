@@ -130,6 +130,9 @@ cd unix
 %{__autoconf}
 TCL_BIN_DIR=%{_libdir}
 %configure \
+%ifarch x32
+	tcl_cv_cc_m64=no \
+%endif
 	--disable-symbols \
 	--disable-threads \
 	--enable-64bit \
