@@ -9,7 +9,7 @@ Name:		tk
 %define		major	8.6
 %define		minor	1
 Version:	%{major}.%{minor}
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	http://downloads.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
