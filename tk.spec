@@ -7,13 +7,13 @@ Summary(tr.UTF-8):	Tk, Tcl için grafik kullanıcı arabirimi araç takımıdır
 Summary(uk.UTF-8):	Tk GUI toolkit для Tcl
 Name:		tk
 %define		major	8.6
-%define		minor	7
+%define		minor	8
 Version:	%{major}.%{minor}
 Release:	1
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	http://downloads.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
-# Source0-md5:	46ea9c0165c515d87393700f4891ab6f
+# Source0-md5:	5e0faecba458ee1386078fb228d008ba
 Patch0:		%{name}-manlnk.patch
 Patch1:		%{name}-opt_flags_pass_fix.patch
 Patch2:		%{name}-norpath.patch
