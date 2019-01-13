@@ -6,8 +6,10 @@ Summary(ru.UTF-8):	Tk GUI toolkit для Tcl
 Summary(tr.UTF-8):	Tk, Tcl için grafik kullanıcı arabirimi araç takımıdır
 Summary(uk.UTF-8):	Tk GUI toolkit для Tcl
 Name:		tk
+# note: 8.6.9 tarball was regenerated after df, there is also 8.6.9.1 - but both contain only OSX specific fixes
 %define		major	8.6
 %define		minor	9
+%define	tcl_ver	%{version}
 Version:	%{major}.%{minor}
 Release:	1
 License:	BSD
@@ -23,11 +25,11 @@ Patch5:		%{name}-soname_fix.patch
 URL:		http://www.tcl.tk/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	pkgconfig
-BuildRequires:	tcl-devel >= %{version}
+BuildRequires:	tcl-devel >= %{tcl_ver}
 BuildRequires:	xorg-lib-libXScrnSaver-devel
 BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-lib-libXft-devel
-Requires:	tcl >= %{version}
+Requires:	tcl >= %{tcl_ver}
 Provides:	tile = 0.8.2
 Obsoletes:	tile < 0.8.2-1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -93,7 +95,7 @@ Summary:	Tk GUI toolkit for Tcl header files and development documentation
 Summary(pl.UTF-8):	Narzędzia Tk GUI - pliki nagłówkowe i dokumentacja
 Group:		Development/Languages/Tcl
 Requires:	%{name} = %{version}-%{release}
-Requires:	tcl-devel >= %{version}
+Requires:	tcl-devel >= %{tcl_ver}
 Requires:	xorg-lib-libXScrnSaver-devel
 Requires:	xorg-lib-libXext-devel
 Requires:	xorg-lib-libXft-devel
@@ -164,11 +166,11 @@ done
 ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk.so
 ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk%{major}.so
 ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk%{major}.so.0
-mv -f $RPM_BUILD_ROOT%{_bindir}/wish%{major} $RPM_BUILD_ROOT%{_bindir}/wish
+%{__mv} $RPM_BUILD_ROOT%{_bindir}/wish%{major} $RPM_BUILD_ROOT%{_bindir}/wish
 
 if [ "%{_libdir}" != "%{_ulibdir}" ] ; then
-	mv $RPM_BUILD_ROOT%{_libdir}/tkConfig.sh $RPM_BUILD_ROOT%{_ulibdir}
-	mv $RPM_BUILD_ROOT%{_libdir}/tk%{major}/pkgIndex.tcl $RPM_BUILD_ROOT%{_ulibdir}/tk%{major}
+	%{__mv} $RPM_BUILD_ROOT%{_libdir}/tkConfig.sh $RPM_BUILD_ROOT%{_ulibdir}
+	%{__mv} $RPM_BUILD_ROOT%{_libdir}/tk%{major}/pkgIndex.tcl $RPM_BUILD_ROOT%{_ulibdir}/tk%{major}
 fi
 
 install generic/tkInt.h $RPM_BUILD_ROOT%{_includedir}
