@@ -8,20 +8,19 @@ Summary(uk.UTF-8):	Tk GUI toolkit для Tcl
 Name:		tk
 # note: 8.6.9 tarball was regenerated after df, there is also 8.6.9.1 - but both contain only OSX specific fixes
 %define		major	8.6
-%define		minor	9
+%define		minor	10
 %define	tcl_ver	%{version}
 Version:	%{major}.%{minor}
 Release:	1
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	http://downloads.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
-# Source0-md5:	77242dcea4e8bbf9f7fef9621c18cb74
+# Source0-md5:	602a47ad9ecac7bf655ada729d140a94
 Patch0:		%{name}-manlnk.patch
 Patch1:		%{name}-opt_flags_pass_fix.patch
 Patch2:		%{name}-norpath.patch
 Patch3:		%{name}-no_tcl_stub.patch
-Patch4:		%{name}-link.patch
-Patch5:		%{name}-soname_fix.patch
+Patch4:		%{name}-soname_fix.patch
 URL:		http://www.tcl.tk/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	pkgconfig
@@ -125,7 +124,6 @@ Narzędzia Tk GUI - programy demonstracyjne.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
-%patch5 -p1
 
 %build
 cd unix
@@ -220,6 +218,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_pkgconfigdir}/tk.pc
 %{_includedir}/tk*.h
 %{_includedir}/tk-private
+%{_mandir}/man3/FindPhoto.3*
+%{_mandir}/man3/FontId.3*
+%{_mandir}/man3/MeasureChar.3*
 %{_mandir}/man3/Tk_*.3*
 %{_mandir}/man3/Ttk_*.3*
 %{_mandir}/mann/*.n*
