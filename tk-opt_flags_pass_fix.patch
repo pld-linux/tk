@@ -1,12 +1,12 @@
 --- tcl8.6.1/unix/tcl.m4~	2013-09-19 22:17:13.000000000 +0200
 +++ tcl8.6.1/unix/tcl.m4	2014-05-31 19:44:20.670186134 +0200
-@@ -1114,7 +1114,7 @@
+@@ -1074,7 +1074,7 @@ AC_DEFUN([SC_CONFIG_CFLAGS], [
      TCL_LIB_VERSIONS_OK=ok
      CFLAGS_DEBUG=-g
      AS_IF([test "$GCC" = yes], [
 -	CFLAGS_OPTIMIZE=-O2
 +	CFLAGS_OPTIMIZE=${OPTFLAGS}
- 	CFLAGS_WARNING="-Wall"
+ 	CFLAGS_WARNING="-Wall -Wpointer-arith"
      ], [
  	CFLAGS_OPTIMIZE=-O
 @@ -1409,7 +1409,7 @@

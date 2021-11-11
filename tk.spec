@@ -6,16 +6,15 @@ Summary(ru.UTF-8):	Tk GUI toolkit для Tcl
 Summary(tr.UTF-8):	Tk, Tcl için grafik kullanıcı arabirimi araç takımıdır
 Summary(uk.UTF-8):	Tk GUI toolkit для Tcl
 Name:		tk
-# note: 8.6.9 tarball was regenerated after df, there is also 8.6.9.1 - but both contain only OSX specific fixes
 %define		major	8.6
-%define		minor	10
+%define		minor	12
 %define	tcl_ver	%{version}
 Version:	%{major}.%{minor}
 Release:	1
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	http://downloads.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
-# Source0-md5:	602a47ad9ecac7bf655ada729d140a94
+# Source0-md5:	1d6dcf6120356e3d211e056dff5e462a
 Patch0:		%{name}-manlnk.patch
 Patch1:		%{name}-opt_flags_pass_fix.patch
 Patch2:		%{name}-norpath.patch

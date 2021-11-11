@@ -1,11 +1,10 @@
-diff -urNp -x '*.orig' tk8.6.10.org/unix/installManPage tk8.6.10/unix/installManPage
---- tk8.6.10.org/unix/installManPage	2019-11-20 20:56:52.000000000 +0100
-+++ tk8.6.10/unix/installManPage	2021-11-11 14:54:22.146254062 +0100
+--- tk8.6.12/unix/installManPage~	2021-11-04 16:06:24.000000000 +0100
++++ tk8.6.12/unix/installManPage	2021-11-11 14:57:02.402920652 +0100
 @@ -117,7 +117,7 @@ for Target in $Names; do
- 	chmod 644 $Dir/$First
- 	$Gzip $Dir/$First
+ 	chmod 644 "$Dir/$First"
+ 	$Gzip "$Dir/$First"
      else
--	ln $SymOrLoc$First$Gz $Dir/$Target$Gz
+-	ln $SymOrLoc"$First$Gz" "$Dir/$Target$Gz"
 +	echo ".so $First" > $Dir/$Target
      fi
  done
