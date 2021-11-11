@@ -1,9 +1,22 @@
-diff -urN tk8.5a3.org/unix/configure.in tk8.5a3/unix/configure.in
---- tk8.5a3.org/unix/configure.in	2005-06-04 23:00:25.000000000 +0200
-+++ tk8.5a3/unix/configure.in	2005-06-17 23:56:37.902518104 +0200
-@@ -428,7 +428,11 @@
+diff -urNp -x '*.orig' tk8.6.10.org/unix/Makefile.in tk8.6.10/unix/Makefile.in
+--- tk8.6.10.org/unix/Makefile.in	2021-11-11 14:55:11.069587375 +0100
++++ tk8.6.10/unix/Makefile.in	2021-11-11 14:55:11.256254042 +0100
+@@ -588,7 +588,8 @@ doc: $(TOP_DIR)/doc/man.macros
+ # a shared library or non-shared library for Tk.
+ ${LIB_FILE}: ${STUB_LIB_FILE} @LIB_RSRC_FILE@ ${OBJS}
+ 	rm -f $@
+-	@MAKE_LIB@
++	@MAKE_LIB@ -Wl,-soname,@TK_LIB_SONAME@
++	-ln -sf ${TK_LIB_FILE} libtk${VERSION}@SHLIB_SUFFIX@
+ 
+ ${STUB_LIB_FILE}: ${STUB_LIB_OBJS}
+ 	@if test "x${LIB_FILE}" = "xlibtk${MAJOR_VERSION}.${MINOR_VERSION}.dll"; then \
+diff -urNp -x '*.orig' tk8.6.10.org/unix/configure.in tk8.6.10/unix/configure.in
+--- tk8.6.10.org/unix/configure.in	2021-11-11 14:55:11.069587375 +0100
++++ tk8.6.10/unix/configure.in	2021-11-11 14:55:11.256254042 +0100
+@@ -656,7 +656,11 @@ eval "TK_LIB_FILE=libtk${LIB_SUFFIX}"
  # tkConfig.sh needs a version of the _LIB_SUFFIX that has been eval'ed
- # since on some platforms TK_LIB_FILE contains shell escapes. 
+ # since on some platforms TK_LIB_FILE contains shell escapes.
  
 -eval "TK_LIB_FILE=${TK_LIB_FILE}"
 +TK_SOMAJOR=".0"
@@ -13,17 +26,4 @@ diff -urN tk8.5a3.org/unix/configure.in tk8.5a3/unix/configure.in
 +AC_SUBST(TK_LIB_SONAME)
  
  if test "${SHARED_BUILD}" = "1" -a "${SHLIB_SUFFIX}" != ""; then
-     SHLIB_LD_LIBS="${SHLIB_LD_LIBS} \${TCL_STUB_LIB_SPEC}"
-diff -urN tk8.5a3.org/unix/Makefile.in tk8.5a3/unix/Makefile.in
---- tk8.5a3.org/unix/Makefile.in	2005-06-04 23:00:25.000000000 +0200
-+++ tk8.5a3/unix/Makefile.in	2005-06-17 23:56:37.903517952 +0200
-@@ -496,7 +496,8 @@
- # a shared library or non-shared library for Tk.
- ${LIB_FILE}: ${OBJS} ${STUB_LIB_FILE} @LIB_RSRC_FILE@
- 	rm -f $@
--	@MAKE_LIB@
-+	@MAKE_LIB@ -Wl,-soname,@TK_LIB_SONAME@
-+	-ln -sf ${TK_LIB_FILE} libtk${VERSION}@SHLIB_SUFFIX@
- 
- ${STUB_LIB_FILE}: ${STUB_LIB_OBJS}
- 	rm -f $@
+     SHLIB_LD_LIBS="${SHLIB_LD_LIBS} \${TCL_LIB_SPEC}"

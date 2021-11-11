@@ -1,6 +1,7 @@
---- tk8.4.19/unix/configure.in.orig	2008-04-17 17:14:08.000000000 +0200
-+++ tk8.4.19/unix/configure.in	2008-06-02 11:29:43.000000000 +0200
-@@ -417,8 +417,8 @@
+diff -urNp -x '*.orig' tk8.6.10.org/unix/configure.in tk8.6.10/unix/configure.in
+--- tk8.6.10.org/unix/configure.in	2019-11-20 20:56:52.000000000 +0100
++++ tk8.6.10/unix/configure.in	2021-11-11 14:54:56.832920714 +0100
+@@ -659,8 +659,8 @@ eval "TK_LIB_FILE=libtk${LIB_SUFFIX}"
  eval "TK_LIB_FILE=${TK_LIB_FILE}"
  
  if test "${SHARED_BUILD}" = "1" -a "${SHLIB_SUFFIX}" != ""; then
@@ -10,4 +11,4 @@
 +    TCL_STUB_FLAGS=""
  fi
  
- TK_LIBRARY='$(prefix)/lib/tk$(VERSION)'
+ test -z "$TK_LIBRARY" && TK_LIBRARY='$(prefix)/lib/tk$(VERSION)'
