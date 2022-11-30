@@ -197,6 +197,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(en_GB) %{_ulibdir}/tk%{major}/msgs/en_gb.msg
 %lang(eo) %{_ulibdir}/tk%{major}/msgs/eo.msg
 %lang(es) %{_ulibdir}/tk%{major}/msgs/es.msg
+%lang(fi) %{_ulibdir}/tk%{major}/msgs/fi.msg
 %lang(fr) %{_ulibdir}/tk%{major}/msgs/fr.msg
 %lang(hu) %{_ulibdir}/tk%{major}/msgs/hu.msg
 %lang(it) %{_ulibdir}/tk%{major}/msgs/it.msg
@@ -205,6 +206,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(pt) %{_ulibdir}/tk%{major}/msgs/pt.msg
 %lang(ru) %{_ulibdir}/tk%{major}/msgs/ru.msg
 %lang(sv) %{_ulibdir}/tk%{major}/msgs/sv.msg
+%lang(zh_CN) %{_ulibdir}/tk%{major}/msgs/zh_cn.msg
 %{_ulibdir}/tk%{major}/ttk
 %{_mandir}/man1/wish.1*
 
