@@ -1,10 +1,10 @@
---- tk8.6.12/unix/installManPage~	2021-11-04 16:06:24.000000000 +0100
-+++ tk8.6.12/unix/installManPage	2021-11-11 14:57:02.402920652 +0100
-@@ -117,7 +117,7 @@ for Target in $Names; do
+--- tk8.6.16/unix/installManPage.orig	2025-03-16 12:43:48.919596964 +0100
++++ tk8.6.16/unix/installManPage	2025-03-16 12:49:54.304284172 +0100
+@@ -118,7 +118,7 @@ for Target in $Names; do
  	chmod 644 "$Dir/$First"
  	$Gzip "$Dir/$First"
      else
--	ln $SymOrLoc"$First$Gz" "$Dir/$Target$Gz"
+-	ln $Sym"$Loc$First$Gz" "$Dir/$Target$Gz"
 +	echo ".so $First" > $Dir/$Target
      fi
  done

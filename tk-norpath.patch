@@ -11,14 +11,14 @@
  
  # support for embedded libraries on Darwin / Mac OS X
  DYLIB_INSTALL_DIR	= $(libdir)
---- tk8.6.12/unix/tcl.m4~	2021-11-11 15:08:12.000000000 +0100
-+++ tk8.6.12/unix/tcl.m4	2021-11-11 15:09:58.622920240 +0100
-@@ -1991,7 +1991,7 @@ dnl # preprocessing tests use only CPPFL
+--- tk8.6.16/unix/tcl.m4.orig	2025-03-16 12:51:19.983820006 +0100
++++ tk8.6.16/unix/tcl.m4	2025-03-16 12:52:49.456668623 +0100
+@@ -2000,7 +2000,7 @@ dnl # preprocessing tests use only CPPFL
  
      AS_IF([test "${SHARED_BUILD}" = 1 -a "${SHLIB_SUFFIX}" != ""], [
-         LIB_SUFFIX=${SHARED_LIB_SUFFIX}
--        MAKE_LIB='${SHLIB_LD} -o [$]@ ${OBJS} ${LDFLAGS} ${SHLIB_LD_LIBS} ${TCL_SHLIB_LD_EXTRAS} ${TK_SHLIB_LD_EXTRAS} ${LD_SEARCH_FLAGS}'
-+        MAKE_LIB='${SHLIB_LD} -o [$]@ ${OBJS} ${LDFLAGS} ${SHLIB_LD_LIBS} ${TCL_SHLIB_LD_EXTRAS} ${TK_SHLIB_LD_EXTRAS}'
-         AS_IF([test "${SHLIB_SUFFIX}" = ".dll"], [
-             INSTALL_LIB='$(INSTALL_LIBRARY) $(LIB_FILE) "$(BIN_INSTALL_DIR)/$(LIB_FILE)";if test -f $(LIB_FILE).a; then $(INSTALL_DATA) $(LIB_FILE).a "$(LIB_INSTALL_DIR)"; fi;'
-             DLL_INSTALL_DIR="\$(BIN_INSTALL_DIR)"
+ 	LIB_SUFFIX=${SHARED_LIB_SUFFIX}
+-	MAKE_LIB='${SHLIB_LD} -o [$]@ ${OBJS} ${LDFLAGS} ${SHLIB_LD_LIBS} ${TCL_SHLIB_LD_EXTRAS} ${TK_SHLIB_LD_EXTRAS} ${LD_SEARCH_FLAGS}'
++	MAKE_LIB='${SHLIB_LD} -o [$]@ ${OBJS} ${LDFLAGS} ${SHLIB_LD_LIBS} ${TCL_SHLIB_LD_EXTRAS} ${TK_SHLIB_LD_EXTRAS}'
+ 	AS_IF([test "${SHLIB_SUFFIX}" = ".dll"], [
+ 	    INSTALL_LIB='$(INSTALL_LIBRARY) $(LIB_FILE) "$(BIN_INSTALL_DIR)/$(LIB_FILE)"'
+ 	    DLL_INSTALL_DIR="\$(BIN_INSTALL_DIR)"

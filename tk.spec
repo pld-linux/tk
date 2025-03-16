@@ -7,20 +7,20 @@ Summary(tr.UTF-8):	Tk, Tcl için grafik kullanıcı arabirimi araç takımıdır
 Summary(uk.UTF-8):	Tk GUI toolkit для Tcl
 Name:		tk
 %define		major	8.6
-%define		minor	13
+%define		minor	16
 %define	tcl_ver	%{version}
 Version:	%{major}.%{minor}
 Release:	1
 License:	BSD
 Group:		Development/Languages/Tcl
-Source0:	http://downloads.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
-# Source0-md5:	95adc33d55a133ee29bc9f81efdf31b2
+Source0:	https://downloads.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
+# Source0-md5:	a7aad6cf52aa4687506a377a9a885a83
 Patch0:		%{name}-manlnk.patch
 Patch1:		%{name}-opt_flags_pass_fix.patch
 Patch2:		%{name}-norpath.patch
 Patch3:		%{name}-no_tcl_stub.patch
 Patch4:		%{name}-soname_fix.patch
-URL:		http://www.tcl.tk/
+URL:		https://www.tcl-lang.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	pkgconfig
 BuildRequires:	tcl-devel >= %{tcl_ver}
@@ -129,19 +129,21 @@ cd unix
 %{__autoconf}
 TCL_BIN_DIR=%{_libdir}
 %configure \
-%ifarch x32
-	tcl_cv_cc_m64=no \
+%if "%{_lib}" == "lib64"
+	--enable-64bit \
 %endif
+	--disable-rpath \
+	--enable-shared \
 	--disable-symbols \
 	--disable-threads \
-	--enable-64bit \
-	--enable-shared \
 	--enable-xft
 
 %{__make}
 
-sed -i -e "s#%{_builddir}/%{name}%{version}/unix#%{_libdir}#; \
-	s#%{_builddir}/%{name}%{version}#%{_includedir}/%{name}-private#" tkConfig.sh
+%{__sed} -i \
+	-e 's#%{_builddir}/%{name}%{version}/unix#%{_libdir}#' \
+	-e 's#%{_builddir}/%{name}%{version}#%{_includedir}/%{name}-private#' \
+	tkConfig.sh
 
 %install
 rm -rf $RPM_BUILD_ROOT

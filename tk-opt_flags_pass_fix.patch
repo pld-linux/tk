@@ -1,16 +1,16 @@
---- tcl8.6.1/unix/tcl.m4~	2013-09-19 22:17:13.000000000 +0200
-+++ tcl8.6.1/unix/tcl.m4	2014-05-31 19:44:20.670186134 +0200
-@@ -1074,7 +1074,7 @@ AC_DEFUN([SC_CONFIG_CFLAGS], [
+--- tk8.6.16/unix/tcl.m4.orig	2024-12-10 18:31:03.000000000 +0100
++++ tk8.6.16/unix/tcl.m4	2025-03-16 12:51:00.217260424 +0100
+@@ -1073,7 +1073,7 @@ AC_DEFUN([SC_CONFIG_CFLAGS], [
      TCL_LIB_VERSIONS_OK=ok
      CFLAGS_DEBUG=-g
      AS_IF([test "$GCC" = yes], [
 -	CFLAGS_OPTIMIZE=-O2
-+	CFLAGS_OPTIMIZE=${OPTFLAGS}
++	CFLAGS_OPTIMIZE="${OPTFLAGS}"
  	CFLAGS_WARNING="-Wall -Wpointer-arith"
      ], [
  	CFLAGS_OPTIMIZE=-O
-@@ -1409,7 +1409,7 @@
- 	    SHLIB_CFLAGS="-fPIC"
+@@ -1372,7 +1372,7 @@ AC_DEFUN([SC_CONFIG_CFLAGS], [
+ 	    SHLIB_CFLAGS="-fPIC -fno-common"
  	    SHLIB_SUFFIX=".so"
  
 -	    CFLAGS_OPTIMIZE="-O2"
@@ -18,4 +18,3 @@
  	    # egcs-2.91.66 on Redhat Linux 6.0 generates lots of warnings
  	    # when you inline the string and math operations.  Turn this off to
  	    # get rid of the warnings.
-
