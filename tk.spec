@@ -6,20 +6,19 @@ Summary(ru.UTF-8):	Tk GUI toolkit для Tcl
 Summary(tr.UTF-8):	Tk, Tcl için grafik kullanıcı arabirimi araç takımıdır
 Summary(uk.UTF-8):	Tk GUI toolkit для Tcl
 Name:		tk
-%define		major	8.6
-%define		minor	16
+%define		major	9.0
+%define		minor	3
 %define	tcl_ver	%{version}
 Version:	%{major}.%{minor}
 Release:	1
 License:	BSD
 Group:		Development/Languages/Tcl
 Source0:	https://downloads.sourceforge.net/tcl/%{name}%{version}-src.tar.gz
-# Source0-md5:	a7aad6cf52aa4687506a377a9a885a83
+# Source0-md5:	72f9c4005eaaf3b9c994bda74324c28e
 Patch0:		%{name}-manlnk.patch
 Patch1:		%{name}-opt_flags_pass_fix.patch
 Patch2:		%{name}-norpath.patch
 Patch3:		%{name}-no_tcl_stub.patch
-Patch4:		%{name}-soname_fix.patch
 URL:		https://www.tcl-lang.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	pkgconfig
@@ -122,20 +121,17 @@ Narzędzia Tk GUI - programy demonstracyjne.
 %patch -P1 -p1
 %patch -P2 -p1
 %patch -P3 -p1
-%patch -P4 -p1
 
 %build
 cd unix
 %{__autoconf}
 TCL_BIN_DIR=%{_libdir}
 %configure \
-%if "%{_lib}" == "lib64"
+	OPTFLAGS="%{rpmcflags} %{rpmcppflags}" \
 	--enable-64bit \
-%endif
 	--disable-rpath \
 	--enable-shared \
-	--disable-symbols \
-	--disable-threads \
+	--disable-zipfs \
 	--enable-xft
 
 %{__make}
@@ -162,9 +158,7 @@ for h in $RPM_BUILD_ROOT%{_includedir}/*.h; do
 	fi
 done
 
-ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk.so
-ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk%{major}.so
-ln -sf libtk%{major}.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libtk%{major}.so.0
+ln -sf libtcl9tk%{major}.so $RPM_BUILD_ROOT%{_libdir}/libtk.so
 %{__mv} $RPM_BUILD_ROOT%{_bindir}/wish%{major} $RPM_BUILD_ROOT%{_bindir}/wish
 
 if [ "%{_libdir}" != "%{_ulibdir}" ] ; then
@@ -183,8 +177,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/wish
-%attr(755,root,root) %{_libdir}/libtk%{major}.so.*.*
-%attr(755,root,root) %ghost %{_libdir}/libtk%{major}.so.0
+%attr(755,root,root) %{_libdir}/libtcl9tk%{major}.so
 %dir %{_ulibdir}/tk%{major}
 %{_ulibdir}/tk%{major}/*.tcl
 %{_ulibdir}/tk%{major}/tclIndex
@@ -215,9 +208,8 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_ulibdir}/tkConfig.sh
-%attr(755,root,root) %{_libdir}/libtk%{major}.so
-%attr(755,root,root) %{_libdir}/libtk.so
-%{_libdir}/libtkstub%{major}.a
+%{_libdir}/libtk.so
+%{_libdir}/libtkstub.a
 %{_pkgconfigdir}/tk.pc
 %{_includedir}/tk*.h
 %{_includedir}/tk-private
